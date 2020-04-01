@@ -115,7 +115,7 @@ MonoBehaviour:
   m_MinSize: {x: 677, y: 492}
   m_MaxSize: {x: 14001, y: 14042}
   vertical: 0
-  controlID: 77
+  controlID: 14
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_MinSize: {x: 402, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 78
+  controlID: 15
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_MinSize: {x: 402, y: 221}
   m_MaxSize: {x: 8002, y: 4021}
   vertical: 0
-  controlID: 79
+  controlID: 16
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -391,8 +391,8 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
+      m_SelectedIDs: 8a330000
+      m_LastClickedID: 13194
       m_ExpandedIDs: 70fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -453,9 +453,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -62.85473, y: -19.986385, z: 55.922012}
+    m_Target: {x: -25.202303, y: -22.624002, z: 80.3208}
     speed: 2
-    m_Value: {x: -62.85473, y: -19.986385, z: 55.922012}
+    m_Value: {x: -25.202303, y: -22.624002, z: 80.3208}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -501,9 +501,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.109117046, y: 0.4083569, z: -0.04923738, w: -0.90494806}
+    m_Target: {x: -0.1327427, y: 0.16363207, z: -0.022221336, w: -0.9773065}
     speed: 2
-    m_Value: {x: -0.109117046, y: 0.4083569, z: -0.04923738, w: -0.90494806}
+    m_Value: {x: -0.13127543, y: 0.16366377, z: -0.02197566, w: -0.97749585}
   m_Size:
     m_Target: 90.86002
     speed: 2
@@ -603,7 +603,7 @@ MonoBehaviour:
   m_LastFolders:
   - Assets
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: V:\Uni work\Year Two\FMP\FMP
+  m_LastProjectPath: C:\Users\Merlin.Aldrick.ADM\Documents\GitHub\TwinStickFMP1\FMP
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
