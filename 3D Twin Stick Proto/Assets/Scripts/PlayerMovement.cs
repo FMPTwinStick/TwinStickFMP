@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //Public Game Objects:
     public GameObject   bulletObject;
     public GameObject   fireBulletObject;
     public GameObject   waterBulletObject;
     public GameObject   earthBulletObject;
 
+    //Bullet Types:
     public enum bulletType
     {
         normal,
@@ -17,29 +19,34 @@ public class PlayerMovement : MonoBehaviour
         earth,
     };
 
-    public bulletType bt;
+    private bulletType bullettype;
 
-    private int bulletTypeCount;
-
+    //Private Class Variables:
     private Rigidbody   m_rigidbody;
 
     private Vector3     moveInput;
     private float       moveSpeed;
 
-    private int         framesBetweenShots;
-    private int         framesPassed;
+    private float       timeBetweenShots;
+    private float       timePassed;
+
+    private float       timeSinceBulletSwitch;
+    private float       bulletSwitchTime;
 
     // Start is called before the first frame update
     void Start()
     {
-        //bt = 0;
+        bullettype = bulletType.fire;
 
         m_rigidbody         = GetComponent<Rigidbody>();
 
         moveSpeed           = 10f;
 
-        framesBetweenShots  = 15;
-        framesPassed        = 0;
+        timeBetweenShots  = 0.15f;
+        timePassed        = 0f;
+
+        timeSinceBulletSwitch = 0f;
+        bulletSwitchTime = 1f; //To change this also change values in the BulletSwitching() function.
     }
 
     // Update is called once per frame
@@ -47,35 +54,46 @@ public class PlayerMovement : MonoBehaviour
     {
         Movement();
         Jumping();
-        Rotating(bt);
+        RightStick(bullettype);
+        BulletSwitching();
     }
-
+    //Movement Function:
     void Movement()
     {
+        //Getting the input from the controller:
         moveInput = new Vector3(Input.GetAxisRaw("Horizontal"),0f,Input.GetAxisRaw("Vertical"));
 
-        m_rigidbody.velocity = moveInput*moveSpeed;
+        //adding movement to the rigidbody:
+        //m_rigidbody.velocity = moveInput*moveSpeed;
+
+        transform.position = transform.position + moveInput * moveSpeed * Time.deltaTime;
     }
 
+    //Jumping Function:
     void Jumping()
     {
-        if(Input.GetAxis("Jump") > 0f)
+        if (Input.GetAxis("Jump") > 0f)
         {
             m_rigidbody.velocity = new Vector3(0f, 10f, 0f);
         }
     }
 
-    void Rotating( bulletType bt)
+    //Rotating Function:
+    void RightStick( bulletType bt)
     {
+        //Getting input from controller:
         Vector3 playerDirection = new Vector3(Input.GetAxisRaw("RHorizontal"), 0f, -Input.GetAxisRaw("RVertical"));
 
+        //Checking for any input at all:
         if (playerDirection.sqrMagnitude > 0f)
         {
+            //rotating player:
             transform.rotation = Quaternion.LookRotation(playerDirection, Vector3.up);
 
-            if (framesPassed > framesBetweenShots)
+            //Shooting:
+            if (timePassed > timeBetweenShots)
             {
-                framesPassed = 0;
+                timePassed = 0;
 
                 switch (bt)
                 {
@@ -96,6 +114,52 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        framesPassed++;
+        timePassed += Time.deltaTime;
+    }
+
+    void BulletSwitching()
+    { 
+        //R1 button:
+        if (Input.GetAxis("R1 Button") > 0f && timeSinceBulletSwitch>bulletSwitchTime)
+        {
+            bulletSwitchTime = 1f;
+            switch (bullettype)
+            {
+                case bulletType.fire:
+                bullettype = bulletType.water;
+                    break;
+                case bulletType.water:
+                bullettype = bulletType.earth; 
+                    break;
+                case bulletType.earth:
+                bullettype = bulletType.fire;
+                    break;
+            }
+            timeSinceBulletSwitch = 0f;
+        }
+        //L1 Button:
+        else if (Input.GetAxis("L1 Button") > 0f && timeSinceBulletSwitch > bulletSwitchTime)
+        {
+            bulletSwitchTime = 1f;
+            switch (bullettype)
+            {
+                case bulletType.fire:
+                    bullettype = bulletType.earth;
+                    break;
+                case bulletType.water:
+                    bullettype = bulletType.fire;
+                    break;
+                case bulletType.earth:
+                    bullettype = bulletType.water;
+                    break;
+            }
+            timeSinceBulletSwitch = 0f;
+        }
+        //else
+        //{
+        //    bulletSwitchTime = 0f;
+        //}
+
+        timeSinceBulletSwitch += Time.deltaTime;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletBehaviour : MonoBehaviour
 {
-
+    //Private Variables:
     private Rigidbody m_rigidbody;
 
     private float moveSpeed;
@@ -12,16 +12,30 @@ public class BulletBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Initialising Variables:
         m_rigidbody = GetComponent<Rigidbody>();
 
-        moveSpeed = 10;
+        moveSpeed = 20;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //m_rigidbody.velocity = moveSpeed * Vector3.right;
+        Movement();
+    }
 
+    //Collisions with walls:
+    void OnCollisionEnter( Collision collision )
+    {
+        if (collision.gameObject.tag == "Wall")
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    //Bullet Movement:
+    void Movement()
+    {
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
     }
 }
