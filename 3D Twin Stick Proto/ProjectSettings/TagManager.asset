@@ -8,6 +8,8 @@ TagManager:
   - Water
   - Earth
   - Wall
+  - Death Cube
+  - Health Pickup
   layers:
   - Default
   - TransparentFX

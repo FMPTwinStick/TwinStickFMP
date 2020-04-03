@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject   fireBulletObject;
     public GameObject   waterBulletObject;
     public GameObject   earthBulletObject;
+    public float playerHealth;
 
     //Bullet Types:
     public enum bulletType
@@ -47,6 +48,10 @@ public class PlayerMovement : MonoBehaviour
 
         timeSinceBulletSwitch = 0f;
         bulletSwitchTime = 1f; //To change this also change values in the BulletSwitching() function.
+
+
+        playerHealth = 100;
+
     }
 
     // Update is called once per frame
@@ -56,6 +61,8 @@ public class PlayerMovement : MonoBehaviour
         Jumping();
         RightStick(bullettype);
         BulletSwitching();
+        KillPlayer();
+        ClampHealth();
     }
     //Movement Function:
     void Movement()
@@ -161,5 +168,40 @@ public class PlayerMovement : MonoBehaviour
         //}
 
         timeSinceBulletSwitch += Time.deltaTime;
+    }
+
+
+    void DamagePlayer()
+    {
+        playerHealth -= 0.3f;
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Death Cube")
+        {
+            DamagePlayer();
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Health Pickup")
+        {
+            playerHealth += 50;
+            Destroy(other.gameObject);
+        }
+    }
+
+    void KillPlayer()
+    {
+        if (playerHealth <= 0)
+            Destroy(gameObject);
+    }
+
+    void ClampHealth()
+    {
+        if (playerHealth >= 100)
+            playerHealth = 100;
     }
 }
