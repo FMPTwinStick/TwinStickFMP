@@ -92,10 +92,10 @@ MonoBehaviour:
     y: 30
     width: 1536
     height: 731
-  m_MinSize: {x: 709, y: 492}
-  m_MaxSize: {x: 18004, y: 14042}
+  m_MinSize: {x: 708, y: 492}
+  m_MaxSize: {x: 18003, y: 14042}
   vertical: 0
-  controlID: 33
+  controlID: 16
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -188,8 +188,8 @@ MonoBehaviour:
     y: 0
     width: 276
     height: 731
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 11}
   m_Panes:
   - {fileID: 11}
@@ -330,7 +330,7 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/PreFabs
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\Merlin.Aldrick.ADM\Documents\GitHub\TwinStickFMP1\3D
+  m_LastProjectPath: C:\Users\Lewis.Nicoll.ADM\Documents\GitHub\Module-6\TwinStickFMP\3D
     Twin Stick Proto
   m_LockTracker:
     m_IsLocked: 0
@@ -341,20 +341,20 @@ MonoBehaviour:
     m_ExpandedIDs: 000000005e34000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: PreFabs
+      m_OriginalName: PreFabs
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 13602
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 10}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -547,9 +547,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.8619797, y: 0.52692884, z: 6.159037}
+    m_Target: {x: 1.2757304, y: 1.5697896, z: -3.9214883}
     speed: 2
-    m_Value: {x: 1.8619797, y: 0.52692884, z: 6.159037}
+    m_Value: {x: 1.2757304, y: 1.5697896, z: -3.9214883}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -595,13 +595,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.2868904, y: 0.045096386, z: -0.013521374, w: -0.95681226}
+    m_Target: {x: -0.18166399, y: -0.49204668, z: 0.105806276, w: -0.8448111}
     speed: 2
-    m_Value: {x: -0.2868886, y: 0.045096107, z: -0.01352129, w: -0.9568063}
+    m_Value: {x: -0.18166286, y: -0.49204364, z: 0.10580562, w: -0.84480584}
   m_Size:
-    m_Target: 15.582111
+    m_Target: 10.77568
     speed: 2
-    m_Value: 15.582111
+    m_Value: 10.77568
   m_Ortho:
     m_Target: 0
     speed: 2
