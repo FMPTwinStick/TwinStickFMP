@@ -62,7 +62,8 @@
      <Compile Include="Assets\Scripts\FireBullet.cs" />
      <Compile Include="Assets\Scripts\PlayerOneMovement.cs" />
      <Compile Include="Assets\Scripts\PlayerTwoMovement.cs" />
-     <Compile Include="Assets\Scripts\TankController.cs" />
+     <Compile Include="Assets\Scripts\TankOneController.cs" />
+     <Compile Include="Assets\Scripts\TankTwoController.cs" />
      <Compile Include="Assets\Scripts\WaterBullet.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/Merlin.Aldrick.ADM/Documents/GitHub/TwinStickFMP1/3D Twin Stick Proto/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
