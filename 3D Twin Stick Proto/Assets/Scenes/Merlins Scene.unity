@@ -700,27 +700,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8391463478631065035}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1697214756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1697214750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b27512b3f26540a41b34f799b90a7563, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletObject: {fileID: 1234695747224003576, guid: 340b997ff7f57b7438897c295d2aed76,
-    type: 3}
-  fireBulletObject: {fileID: 1234695747224003576, guid: 77b97a99060197045ac14af37eea54a0,
-    type: 3}
-  waterBulletObject: {fileID: 1234695747224003576, guid: d5e6949d4a9467248b4e6efd587d9da2,
-    type: 3}
-  earthBulletObject: {fileID: 1234695747224003576, guid: 28826f143e4db554da6fac72895e9f7b,
-    type: 3}
-  playerHealth: 0
 --- !u!1001 &1911399540
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -808,7 +787,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1697214756, guid: 02eb3ea0f2fdbc545bf937b5153523ee, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 02eb3ea0f2fdbc545bf937b5153523ee, type: 3}
 --- !u!1001 &4875154082974322341
 PrefabInstance:

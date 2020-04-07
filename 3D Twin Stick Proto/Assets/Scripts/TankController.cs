@@ -34,7 +34,7 @@ public class TankController : MonoBehaviour
     void Movement()
     {
         //Getting the input from the controller:
-        moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
+        moveInput = new Vector3(Input.GetAxisRaw("HorizontalJ1"), 0f, Input.GetAxisRaw("VerticalJ1"));
 
         transform.position = transform.position + moveInput * moveSpeed * Time.deltaTime;
         transform.rotation = Quaternion.LookRotation(moveInput, Vector3.up);
@@ -44,7 +44,7 @@ public class TankController : MonoBehaviour
     void RightStick()
     {
         //Getting input from controller:
-        Vector3 playerDirection = new Vector3(Input.GetAxisRaw("RHorizontal"), 0f, -Input.GetAxisRaw("RVertical"));
+        Vector3 playerDirection = new Vector3(Input.GetAxisRaw("RHorizontalJ1"), 0f, -Input.GetAxisRaw("RVerticalJ1"));
 
         //Checking for any input at all:
         if (playerDirection.sqrMagnitude > 0f)

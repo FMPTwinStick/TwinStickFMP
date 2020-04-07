@@ -340,7 +340,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 0
-    joyNum: 3
+    joyNum: 2
   - serializedVersion: 3
     m_Name: VerticalJ2
     descriptiveName: 
@@ -356,7 +356,7 @@ InputManager:
     invert: 1
     type: 2
     axis: 1
-    joyNum: 3
+    joyNum: 2
   - serializedVersion: 3
     m_Name: RHorizontalJ2
     descriptiveName: 
@@ -372,7 +372,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 2
-    joyNum: 3
+    joyNum: 2
   - serializedVersion: 3
     m_Name: RVerticalJ2
     descriptiveName: 
@@ -388,4 +388,4 @@ InputManager:
     invert: 0
     type: 2
     axis: 5
-    joyNum: 3
+    joyNum: 2
