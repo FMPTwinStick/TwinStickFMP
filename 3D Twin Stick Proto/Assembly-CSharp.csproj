@@ -60,7 +60,8 @@
      <Compile Include="Assets\Scripts\CameraBehaviour.cs" />
      <Compile Include="Assets\Scripts\EarthBullet.cs" />
      <Compile Include="Assets\Scripts\FireBullet.cs" />
-     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\PlayerOneMovement.cs" />
+     <Compile Include="Assets\Scripts\PlayerTwoMovement.cs" />
      <Compile Include="Assets\Scripts\WaterBullet.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/Merlin.Aldrick.ADM/Documents/GitHub/TwinStickFMP1/3D Twin Stick Proto/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
@@ -619,6 +620,7 @@
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
