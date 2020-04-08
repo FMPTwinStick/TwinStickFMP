@@ -66,6 +66,7 @@ public class TankOneController : MonoBehaviour
         {
             //rotating player:
             cannonPivot.transform.rotation = Quaternion.LookRotation(playerDirection, Vector3.up);
+            Debug.DrawLine(transform.position, transform.position + playerDirection*5f);
 
             //Shooting:
             if (timePassed > timeBetweenShots)
