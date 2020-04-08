@@ -565,6 +565,8 @@ MonoBehaviour:
   bulletObject: {fileID: 1234695747224003576, guid: 340b997ff7f57b7438897c295d2aed76,
     type: 3}
   cannonPivot: {fileID: 212493178}
+  tankBody: {fileID: 2050140414}
+  maxRotationSpeed: 720
 --- !u!114 &2050140410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -578,6 +580,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tankOneHealth: 0
+--- !u!4 &2050140414 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 75160405507053021, guid: e8daf855279a04148bf9fe8df3189273,
+    type: 3}
+  m_PrefabInstance: {fileID: 43901525}
+  m_PrefabAsset: {fileID: 0}
 --- !u!54 &2050140415
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -888,6 +896,12 @@ PrefabInstance:
       propertyPath: playerRB
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8142833215616382647, guid: e644cb1abeedcbd4f80f3dd5a78f15d0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8142833215616382644, guid: e644cb1abeedcbd4f80f3dd5a78f15d0, type: 3}
+    - {fileID: 8142833215616382647, guid: e644cb1abeedcbd4f80f3dd5a78f15d0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e644cb1abeedcbd4f80f3dd5a78f15d0, type: 3}
