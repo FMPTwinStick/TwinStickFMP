@@ -2,18 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class TankOneController : MonoBehaviour
 {
     //Public Game Objects:
     public GameObject bulletObject;
     public Component cannonPivot;
+    public Component tankBody;
+    public float maxRotationSpeed = 720.0f;
 
     //Private Class Variables:
     private Vector3 moveInput;
     private float moveSpeed;
+  
 
     private float timeBetweenShots;
     private float timePassed;
+    private Quaternion targetRotation;
+
+   
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +29,8 @@ public class TankOneController : MonoBehaviour
 
         timeBetweenShots = 0.15f;
         timePassed = 0f;
+        
+
     }
 
     // Update is called once per frame
@@ -34,11 +43,17 @@ public class TankOneController : MonoBehaviour
     void Movement()
     {
         //Getting the input from the controller:
-        moveInput = new Vector3(Input.GetAxisRaw("HorizontalJ1"), 0f, Input.GetAxisRaw("VerticalJ1"));
+        moveInput = new Vector3(Input.GetAxisRaw("HorizontalJ1"), 0.0f, Input.GetAxisRaw("VerticalJ1"));
 
         transform.position = transform.position + moveInput * moveSpeed * Time.deltaTime;
-        transform.rotation = Quaternion.LookRotation(moveInput, Vector3.up);
-    }
+        if (moveInput.sqrMagnitude > 0f)
+        {
+            targetRotation = Quaternion.LookRotation(moveInput);
+            tankBody.transform.eulerAngles = Vector3.up * Mathf.MoveTowardsAngle(transform.eulerAngles.y, targetRotation.eulerAngles.y, maxRotationSpeed * Time.deltaTime);
+        }
+
+
+        }
 
     //Rotating Function:
     void RightStick()

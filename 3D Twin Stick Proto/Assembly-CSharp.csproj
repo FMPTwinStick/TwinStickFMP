@@ -63,7 +63,9 @@
      <Compile Include="Assets\Scripts\PhysicsBulletBehaviour.cs" />
      <Compile Include="Assets\Scripts\PlayerOneMovement.cs" />
      <Compile Include="Assets\Scripts\PlayerTwoMovement.cs" />
+     <Compile Include="Assets\Scripts\TankOneBehaviour.cs" />
      <Compile Include="Assets\Scripts\TankOneController.cs" />
+     <Compile Include="Assets\Scripts\TankTwoBehaviour.cs" />
      <Compile Include="Assets\Scripts\TankTwoController.cs" />
      <Compile Include="Assets\Scripts\WaterBullet.cs" />
  <Reference Include="Unity.Timeline.Editor">
