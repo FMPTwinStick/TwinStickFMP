@@ -10,6 +10,8 @@ TagManager:
   - Wall
   - Death Cube
   - Health Pickup
+  - HorizontalWall
+  - VerticalWall
   layers:
   - Default
   - TransparentFX
