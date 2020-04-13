@@ -47,10 +47,18 @@ public class RayTraceBulletBehaviour : MonoBehaviour
         
         if( Physics.Raycast(bulletPath,out objectHit, moveSpeed * Time.deltaTime + .1f))
         {
-            reflectDirection = Vector3.Reflect(bulletPath.direction, objectHit.normal);
-            newRotation = 90f - Mathf.Atan2(reflectDirection.z, reflectDirection.x) * Mathf.Rad2Deg;
-            transform.position = objectHit.point;
-            transform.eulerAngles = new Vector3(0, newRotation, 0);
+            if (currentBounces < maxBounces)
+            {
+                reflectDirection = Vector3.Reflect(bulletPath.direction, objectHit.normal);
+                newRotation = 90f - Mathf.Atan2(reflectDirection.z, reflectDirection.x) * Mathf.Rad2Deg;
+                transform.position = objectHit.point;
+                transform.eulerAngles = new Vector3(0, newRotation, 0);
+                currentBounces++;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
