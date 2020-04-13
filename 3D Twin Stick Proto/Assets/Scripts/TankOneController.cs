@@ -69,7 +69,7 @@ public class TankOneController : MonoBehaviour
             Debug.DrawLine(transform.position, transform.position + playerDirection*5f);
 
             //Shooting:
-            if (timePassed > timeBetweenShots)
+            if (Input.GetButtonDown("Shoot") && timePassed > timeBetweenShots)
             {
                 timePassed = 0;
 
@@ -80,5 +80,5 @@ public class TankOneController : MonoBehaviour
 
         timePassed += Time.deltaTime;
     }
-
+ 
 }
