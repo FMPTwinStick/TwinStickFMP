@@ -7,6 +7,7 @@ public class TankOneController : MonoBehaviour
 {
     //Public Game Objects:
     public GameObject bulletObject;
+    public GameObject landmine;
     public Component cannonPivot;
     public Component tankBody;
     public float maxRotationSpeed = 720.0f;
@@ -14,13 +15,13 @@ public class TankOneController : MonoBehaviour
     //Private Class Variables:
     private Vector3 moveInput;
     private float moveSpeed;
-  
+
 
     private float timeBetweenShots;
     private float timePassed;
     private Quaternion targetRotation;
 
-   
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,7 @@ public class TankOneController : MonoBehaviour
 
         timeBetweenShots = 0.15f;
         timePassed = 0f;
-        
+
 
     }
 
@@ -53,7 +54,7 @@ public class TankOneController : MonoBehaviour
         }
 
 
-        }
+    }
 
     //Rotating Function:
     void RightStick()
@@ -66,19 +67,40 @@ public class TankOneController : MonoBehaviour
         {
             //rotating player:
             cannonPivot.transform.rotation = Quaternion.LookRotation(playerDirection, Vector3.up);
-            Debug.DrawLine(transform.position, transform.position + playerDirection*5f);
+            Debug.DrawLine(transform.position, transform.position + playerDirection * 5f);
 
             //Shooting:
             if (Input.GetButtonDown("Shoot") && timePassed > timeBetweenShots)
             {
                 timePassed = 0;
 
-                Instantiate(bulletObject, transform.position + 1.5f*playerDirection, Quaternion.LookRotation(playerDirection, Vector3.up));
-                
+                Instantiate(bulletObject, transform.position + 1.5f * playerDirection, Quaternion.LookRotation(playerDirection, Vector3.up));
+
             }
+
+
         }
 
+        if (Input.GetButtonDown("PlaceLandmine"))
+        {
+
+            Instantiate(landmine, transform.position + 1.5f * playerDirection, Quaternion.LookRotation(playerDirection, Vector3.up));
+        }
+
+
         timePassed += Time.deltaTime;
+
     }
- 
+
+//void DropMine()
+//    {
+
+
+//        if (Input.GetButtonDown("PlaceLandmine"))
+//        {
+
+//            Instantiate(landmine, transform.position + 1.5f * playerDirection, Quaternion.LookRotation(playerDirection, Vector3.up));
+//        }
+//    }
+
 }
