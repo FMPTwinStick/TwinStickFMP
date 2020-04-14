@@ -5,7 +5,7 @@ using UnityEngine;
 public class RayTraceBulletBehaviour : MonoBehaviour
 {
     //Public Variables:
-    public int maxBounces;
+    
 
     //Private Variables:
     private float   moveSpeed;
@@ -16,6 +16,7 @@ public class RayTraceBulletBehaviour : MonoBehaviour
     private float newRotation;
 
     private int currentBounces;
+    private int maxBounces;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,7 @@ public class RayTraceBulletBehaviour : MonoBehaviour
         bulletPath      = new Ray(transform.position, transform.forward);
 
         currentBounces  = 0;
+        maxBounces      = 100;
     }
 
     // Update is called once per frame
@@ -47,6 +49,11 @@ public class RayTraceBulletBehaviour : MonoBehaviour
         
         if( Physics.Raycast(bulletPath,out objectHit, moveSpeed * Time.deltaTime + .1f))
         {
+            if(objectHit.transform.tag == "Bullet")
+            {
+                Destroy(objectHit.collider.gameObject);
+                Destroy(gameObject);
+            }
             if (currentBounces < maxBounces)
             {
                 reflectDirection = Vector3.Reflect(bulletPath.direction, objectHit.normal);
@@ -55,7 +62,7 @@ public class RayTraceBulletBehaviour : MonoBehaviour
                 transform.eulerAngles = new Vector3(0, newRotation, 0);
                 currentBounces++;
             }
-            else
+            if (currentBounces >= maxBounces)
             {
                 Destroy(gameObject);
             }

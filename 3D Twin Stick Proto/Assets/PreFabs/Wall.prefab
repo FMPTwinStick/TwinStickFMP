@@ -80,7 +80,7 @@ PrefabInstance:
     - target: {fileID: 4875154084011754458, guid: 3609797c86d0c634a844881f97e99081,
         type: 3}
       propertyPath: m_Name
-      value: Floor (1)
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 4875154084011754458, guid: 3609797c86d0c634a844881f97e99081,
         type: 3}

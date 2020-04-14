@@ -4,14 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Fire
-  - Water
-  - Earth
   - Wall
   - Death Cube
   - Health Pickup
-  - HorizontalWall
-  - VerticalWall
+  - Bullet
   layers:
   - Default
   - TransparentFX

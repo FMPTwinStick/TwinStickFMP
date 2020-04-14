@@ -73,7 +73,7 @@ public class TankOneController : MonoBehaviour
             {
                 timePassed = 0;
 
-                Instantiate(bulletObject, transform.position + playerDirection, Quaternion.LookRotation(playerDirection, Vector3.up));
+                Instantiate(bulletObject, transform.position + 1.5f*playerDirection, Quaternion.LookRotation(playerDirection, Vector3.up));
                 
             }
         }
