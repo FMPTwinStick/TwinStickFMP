@@ -26,7 +26,7 @@ public class RayTraceBulletBehaviour : MonoBehaviour
         bulletPath      = new Ray(transform.position, transform.forward);
 
         currentBounces  = 0;
-        maxBounces      = 100;
+        maxBounces      = 1;
     }
 
     // Update is called once per frame
@@ -49,22 +49,25 @@ public class RayTraceBulletBehaviour : MonoBehaviour
         
         if( Physics.Raycast(bulletPath,out objectHit, moveSpeed * Time.deltaTime + .1f))
         {
-            if(objectHit.transform.tag == "Bullet")
+            if (objectHit.collider.gameObject != gameObject)
             {
-                Destroy(objectHit.collider.gameObject);
-                Destroy(gameObject);
-            }
-            if (currentBounces < maxBounces)
-            {
-                reflectDirection = Vector3.Reflect(bulletPath.direction, objectHit.normal);
-                newRotation = 90f - Mathf.Atan2(reflectDirection.z, reflectDirection.x) * Mathf.Rad2Deg;
-                transform.position = objectHit.point;
-                transform.eulerAngles = new Vector3(0, newRotation, 0);
-                currentBounces++;
-            }
-            if (currentBounces >= maxBounces)
-            {
-                Destroy(gameObject);
+                if (objectHit.transform.tag == "Bullet")
+                {
+                    Destroy(objectHit.collider.gameObject);
+                    Destroy(gameObject);
+                }
+                else if (currentBounces < maxBounces)
+                {
+                    reflectDirection = Vector3.Reflect(bulletPath.direction, objectHit.normal);
+                    newRotation = 90f - Mathf.Atan2(reflectDirection.z, reflectDirection.x) * Mathf.Rad2Deg;
+                    transform.position = objectHit.point;
+                    transform.eulerAngles = new Vector3(0, newRotation, 0);
+                    currentBounces++;
+                }
+                else if (currentBounces >= maxBounces)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
     }
