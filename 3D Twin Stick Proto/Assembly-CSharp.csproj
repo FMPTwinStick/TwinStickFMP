@@ -57,6 +57,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BulletBehaviour.cs" />
      <Compile Include="Assets\Scripts\BulletManager.cs" />
+     <Compile Include="Assets\Scripts\EnemyShootingBehaviour.cs" />
      <Compile Include="Assets\Scripts\LandMine.cs" />
      <Compile Include="Assets\Scripts\Old Scripts\CameraBehaviour.cs" />
      <Compile Include="Assets\Scripts\Old Scripts\EarthBullet.cs" />

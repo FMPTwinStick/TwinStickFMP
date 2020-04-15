@@ -120,5 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01fa64039a2f9746927b161b04272e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fuseBurnout: {fileID: 3890141863486177649, guid: 5865b2e83880df4428408f0903900ede,
+    type: 3}
   cubeCollider: {fileID: 551144946965430852}
   sphereCollider: {fileID: 6401967304035397221}
+  fuseLength: 0

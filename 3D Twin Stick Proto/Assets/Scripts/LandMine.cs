@@ -4,31 +4,46 @@ using UnityEngine;
 
 public class LandMine : MonoBehaviour
 {
-
+    public GameObject fuseBurnout;
     public Collider cubeCollider;
     public Collider sphereCollider;
     bool landMineActive = false;
+    public float fuseLength;
+    float timer;
   //  bool destroyLandmine = false;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        sphereCollider.enabled = false; 
+        sphereCollider.enabled = false;
+        timer = 0.0f;
+        fuseLength = 5.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-      //  DestroyLandmine();
+        //  DestroyLandmine();
+        timer += Time.deltaTime;
+        if (timer >= fuseLength)
+        {
+            TriggerLandmine();
+        }
     }
     
 
     void OnTriggerExit(Collider other)
     {
-        landMineActive = true; 
+        landMineActive = true;
+        if (timer == fuseLength)
+        {
+            sphereCollider.enabled = true;
+            Destroy(other.gameObject);
+            Invoke("DestroyLandmine", 0.1f);
+        }
     }
-   
+
     void OnTriggerEnter(Collider other)
     {
 
@@ -36,17 +51,27 @@ public class LandMine : MonoBehaviour
         {
             sphereCollider.enabled = true;
             Destroy(other.gameObject);
-       //     destroyLandmine = true;
-     
+            Invoke("DestroyLandmine", 0.1f);
         }
+   
+       
+        
     }
 
-    //void DestroyLandmine()
-    //{
-    //    if (destroyLandmine == true)
-    //        Destroy(gameObject);   
+    void DestroyLandmine()
+    {
+        Destroy(gameObject);
+    }
 
-    //}
+    void TriggerLandmine()
+    {
+        Instantiate(fuseBurnout, transform.position, Quaternion.identity);
+    }
+
 
 
 }
+
+
+
+

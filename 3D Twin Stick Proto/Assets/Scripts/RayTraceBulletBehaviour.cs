@@ -56,6 +56,17 @@ public class RayTraceBulletBehaviour : MonoBehaviour
                     Destroy(objectHit.collider.gameObject);
                     Destroy(gameObject);
                 }
+                else if (objectHit.transform.tag == "Tank")
+                {
+                    Destroy(objectHit.collider.transform.parent.gameObject );
+                    Destroy(gameObject);
+                }
+                else if (objectHit.transform.tag == "Player")
+                {
+                    Destroy(objectHit.collider.transform.parent.gameObject);
+                    Destroy(gameObject);
+                }
+
                 else if (currentBounces < maxBounces)
                 {
                     reflectDirection = Vector3.Reflect(bulletPath.direction, objectHit.normal);

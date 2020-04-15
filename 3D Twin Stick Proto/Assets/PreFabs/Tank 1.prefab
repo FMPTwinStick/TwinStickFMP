@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletObject: {fileID: 1234695747224003576, guid: 540bb482faa2242408449d12a9a0b055,
     type: 3}
+  landmine: {fileID: 0}
   cannonPivot: {fileID: 4561972449478669706}
   tankBody: {fileID: 6858537629933352862}
   maxRotationSpeed: 720
@@ -283,6 +284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletObject: {fileID: 1234695747224003576, guid: 540bb482faa2242408449d12a9a0b055,
     type: 3}
+  landmine: {fileID: 0}
   cannonPivot: {fileID: 4561972449478669706}
   tankBody: {fileID: 3808810141738542026}
   maxRotationSpeed: 720

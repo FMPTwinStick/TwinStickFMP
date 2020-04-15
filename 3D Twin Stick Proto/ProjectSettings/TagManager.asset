@@ -8,6 +8,7 @@ TagManager:
   - Death Cube
   - Health Pickup
   - Bullet
+  - Tank
   layers:
   - Default
   - TransparentFX
