@@ -8,6 +8,7 @@ public class EnemyShootingTracking : MonoBehaviour
     public GameObject bulletObject;
     public Component cannonPivot;
     public Transform playerTransform;
+    public LayerMask layerMask;
 
     //Private Variables:
 
@@ -34,6 +35,10 @@ public class EnemyShootingTracking : MonoBehaviour
         //InvertRotation variables:
         private float currentInvertRotationTimer;
         private float maxInvertRotationTimer;
+
+        //PlayerDetectionVariables:
+        private float timeBetweenShots;
+        private float timePassed;
 
     //Tracking variables:
     private bool isTracking;
@@ -64,6 +69,11 @@ public class EnemyShootingTracking : MonoBehaviour
 
         isTracking = false;
 
+        layerMask = ~layerMask;
+
+        timeBetweenShots = 1f;
+        timePassed = 0f;
+
     }
 
     // Update is called once per frame
@@ -93,12 +103,19 @@ public class EnemyShootingTracking : MonoBehaviour
             bulletPath.direction = playerTransform.position - transform.position;
         }
 
-        if (Physics.Raycast(bulletPath, out objectHit, 30f))
+        //Changes the way the cannon is facing to match:
+        cannonPivot.transform.rotation = Quaternion.LookRotation(bulletPath.direction, Vector3.up);
+
+        if (Physics.Raycast(bulletPath, out objectHit, 30f, layerMask))
         {
 
             if (objectHit.transform.tag == "Player")
             {
-                Instantiate(bulletObject, transform.position + 1.5f * bulletPath.direction, Quaternion.LookRotation(bulletPath.direction, Vector3.up));
+                if (timePassed > timeBetweenShots)
+                {
+                    Instantiate(bulletObject, transform.position + 1.5f * bulletPath.direction, Quaternion.LookRotation(bulletPath.direction, Vector3.up));
+                    timePassed = 0f;
+                }
                 isTracking = true;
             }
             if (objectHit.transform.tag != "Player")
@@ -106,6 +123,8 @@ public class EnemyShootingTracking : MonoBehaviour
                 isTracking = false;
             }
         }
+
+        timePassed += Time.deltaTime;
     }
 
 
@@ -147,8 +166,7 @@ public class EnemyShootingTracking : MonoBehaviour
 
             viewDirection = viewDirection.normalized;
 
-            //Changes the way the cannon is facing to match:
-            cannonPivot.transform.rotation = Quaternion.LookRotation(viewDirection, Vector3.up);
+            
         }
     }
 

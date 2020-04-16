@@ -65,7 +65,11 @@ MonoBehaviour:
   bulletObject: {fileID: 1234695747224003576, guid: 540bb482faa2242408449d12a9a0b055,
     type: 3}
   cannonPivot: {fileID: 4561972449478669706}
-  playerPosition: {fileID: 0}
+  playerTransform: {fileID: 6858537629933352862, guid: 0bbbeaa9939986246a908fc756b643f4,
+    type: 3}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &5455632185055929014
 GameObject:
   m_ObjectHideFlags: 0
