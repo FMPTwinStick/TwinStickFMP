@@ -56,16 +56,16 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BulletBehaviour.cs" />
-     <Compile Include="Assets\Scripts\BulletManager.cs" />
      <Compile Include="Assets\Scripts\EnemyShootingBehaviour.cs" />
+     <Compile Include="Assets\Scripts\EnemyShootingTracking.cs" />
      <Compile Include="Assets\Scripts\LandMine.cs" />
      <Compile Include="Assets\Scripts\Old Scripts\CameraBehaviour.cs" />
      <Compile Include="Assets\Scripts\Old Scripts\EarthBullet.cs" />
      <Compile Include="Assets\Scripts\Old Scripts\FireBullet.cs" />
+     <Compile Include="Assets\Scripts\Old Scripts\PhysicsBulletBehaviour.cs" />
      <Compile Include="Assets\Scripts\Old Scripts\PlayerOneMovement.cs" />
      <Compile Include="Assets\Scripts\Old Scripts\PlayerTwoMovement.cs" />
      <Compile Include="Assets\Scripts\Old Scripts\WaterBullet.cs" />
-     <Compile Include="Assets\Scripts\PhysicsBulletBehaviour.cs" />
      <Compile Include="Assets\Scripts\RayTraceBulletBehaviour.cs" />
      <Compile Include="Assets\Scripts\TankOneBehaviour.cs" />
      <Compile Include="Assets\Scripts\TankOneController.cs" />
