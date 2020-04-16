@@ -28,7 +28,11 @@ public class EnemyShootingBehaviour : MonoBehaviour
         //ReRotateVariables:
         private bool startReRotateTimer;
         private float currentRotTimer;
-        private float reRotateTimer;  
+        private float reRotateTimer;
+
+        //InvertRotation variables:
+        private float currentInvertRotationTimer;
+        private float maxInvertRotationTimer;    
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +55,9 @@ public class EnemyShootingBehaviour : MonoBehaviour
         currentRotTimer = 0f;
         reRotateTimer   = 1f;
 
+        currentInvertRotationTimer = 0f;
+        maxInvertRotationTimer = Random.Range(0f,4f);
+
     }
 
     // Update is called once per frame
@@ -61,9 +68,10 @@ public class EnemyShootingBehaviour : MonoBehaviour
         PlayerDetection();
 
         ReRotateTimer();
+
+        InvertRotation();
         
         Debug.DrawLine(transform.position, transform.position + viewDirection* 30f);
-        Debug.Log(currentRotTimer);
     }
 
 
@@ -140,6 +148,19 @@ public class EnemyShootingBehaviour : MonoBehaviour
                 currentRotTimer = 0f;
                 startReRotateTimer = false;
             }
+        }
+    }
+
+    void InvertRotation()
+    {
+        currentInvertRotationTimer += Time.deltaTime;
+
+        if (currentInvertRotationTimer > maxInvertRotationTimer)
+        {
+            deltaZ = -deltaZ;
+            deltaX = -deltaX;
+            currentInvertRotationTimer = 0f;
+            maxInvertRotationTimer = Random.Range(0f, 4f);
         }
     }
 }
