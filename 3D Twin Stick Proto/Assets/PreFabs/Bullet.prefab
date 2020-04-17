@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 1049652555102621256}
   - component: {fileID: 105668115305442402}
   - component: {fileID: 5377652085978697286}
-  - component: {fileID: -724599672350733841}
-  - component: {fileID: -8442494402942743592}
   - component: {fileID: 5286387481452958380}
+  - component: {fileID: 2379738801715842454}
   m_Layer: 9
   m_Name: Bullet
   m_TagString: Untagged
@@ -30,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1234695747224003576}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.229, y: 3.741, z: -5.655}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.18604, y: 0.18604, z: 0.18604}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -82,7 +81,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &-724599672350733841
+--- !u!135 &5286387481452958380
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234695747224003576}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2379738801715842454
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,35 +103,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1234695747224003576}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac9500244c4578040bd538b771158ae0, type: 3}
+  m_Script: {fileID: 11500000, guid: fad69b6320564524c9222481805b2aa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &-8442494402942743592
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1234695747224003576}
-  serializedVersion: 2
-  m_Mass: 0.05
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 36
-  m_CollisionDetection: 0
---- !u!135 &5286387481452958380
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1234695747224003576}
-  m_Material: {fileID: 13400000, guid: 733982ea28ec91749bdd03b38abd1d26, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
