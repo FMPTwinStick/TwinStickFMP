@@ -217,6 +217,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!4 &482926131 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4561972449478669706, guid: 79a58546403b8e0499a1c89ce8a215b5,
+    type: 3}
+  m_PrefabInstance: {fileID: 611030733}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &495896235
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,10 +340,24 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2014319454, guid: 79a58546403b8e0499a1c89ce8a215b5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877767888038265234, guid: 79a58546403b8e0499a1c89ce8a215b5,
+        type: 3}
+      propertyPath: cannonPivot
+      value: 
+      objectReference: {fileID: 482926131}
     - target: {fileID: 5409685262130309666, guid: 79a58546403b8e0499a1c89ce8a215b5,
         type: 3}
       propertyPath: m_Name
       value: EnemyTank1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409685262130309666, guid: 79a58546403b8e0499a1c89ce8a215b5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Tank
       objectReference: {fileID: 0}
     - target: {fileID: 6858537629933352862, guid: 79a58546403b8e0499a1c89ce8a215b5,
         type: 3}
@@ -394,7 +414,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2014319454, guid: 79a58546403b8e0499a1c89ce8a215b5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 79a58546403b8e0499a1c89ce8a215b5, type: 3}
 --- !u!1001 &912229026
 PrefabInstance:
@@ -1317,6 +1338,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 551144946965430855, guid: a60362b7e5e262040b7030efd3435dbb,
         type: 3}
+    - target: {fileID: 2134662538, guid: 0bbbeaa9939986246a908fc756b643f4, type: 3}
+      propertyPath: bulletObject
+      value: 
+      objectReference: {fileID: 1234695747224003576, guid: 340b997ff7f57b7438897c295d2aed76,
+        type: 3}
     - target: {fileID: 5409685262130309666, guid: 0bbbeaa9939986246a908fc756b643f4,
         type: 3}
       propertyPath: m_Name
@@ -1417,8 +1443,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a2d7ef68a9b2746807a4fd5ef724dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletObject: {fileID: 1234695747224003576, guid: 540bb482faa2242408449d12a9a0b055,
+  bulletObject: {fileID: 1234695747224003576, guid: 340b997ff7f57b7438897c295d2aed76,
     type: 3}
+  cannonPivot: {fileID: 482926131}
 --- !u!54 &2014319455
 Rigidbody:
   m_ObjectHideFlags: 0
