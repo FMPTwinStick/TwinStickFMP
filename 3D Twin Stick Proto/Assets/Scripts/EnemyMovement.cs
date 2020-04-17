@@ -1,0 +1,43 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EnemyMovement : MonoBehaviour
+{
+    //Private Variables:
+    private float moveSpeed;
+    private float moveTimer;
+    private float maxDirectionTime;
+    private Vector3 moveDirection;
+
+    private Ray movementPath;
+    private RaycastHit objectHit;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        moveSpeed = 1f;
+        moveTimer = 0f;
+        maxDirectionTime = 7.5f;
+        moveDirection = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f));
+        moveDirection = moveDirection.normalized;
+
+        movementPath = new Ray(transform.position, moveDirection);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        transform.position = transform.position + moveDirection * moveSpeed * Time.deltaTime;
+        moveTimer += Time.deltaTime;
+        if(moveTimer > maxDirectionTime)
+        {
+            moveTimer = 0f;
+            moveDirection = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f));
+            moveDirection = moveDirection.normalized;
+        }
+
+        movementPath = new Ray(transform.position, moveDirection);
+
+    }
+}

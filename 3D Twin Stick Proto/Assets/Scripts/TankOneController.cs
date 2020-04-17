@@ -30,8 +30,6 @@ public class TankOneController : MonoBehaviour
 
         timeBetweenShots = 0.15f;
         timePassed = 0f;
-
-
     }
 
     // Update is called once per frame
