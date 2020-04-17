@@ -94,6 +94,8 @@ public class EnemyShootingTracking : MonoBehaviour
     //Player Detection function, checks to see if the ray cast intersects the player and fires a bullet accordingly:
     void PlayerDetection()
     {
+        bulletPath.origin = transform.position;
+
         if (!isTracking)
         {
             bulletPath.direction = viewDirection;
