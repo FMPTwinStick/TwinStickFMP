@@ -60,6 +60,7 @@ public class RayTraceBulletBehaviour : MonoBehaviour
                 {
                     Destroy(objectHit.collider.transform.parent.gameObject );
                     Destroy(gameObject);
+                    Globals.enemiesLeft -= 1;
                 }
                 else if (objectHit.transform.tag == "Player")
                 {
