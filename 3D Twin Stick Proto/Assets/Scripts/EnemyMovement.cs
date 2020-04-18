@@ -13,6 +13,8 @@ public class EnemyMovement : MonoBehaviour
     private Ray movementPath;
     private RaycastHit objectHit;
 
+    private bool isReversing;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,21 +25,45 @@ public class EnemyMovement : MonoBehaviour
         moveDirection = moveDirection.normalized;
 
         movementPath = new Ray(transform.position, moveDirection);
+
+        isReversing = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = transform.position + moveDirection * moveSpeed * Time.deltaTime;
+        if (!isReversing)
+        {
+            transform.position = transform.position + moveDirection * moveSpeed * Time.deltaTime;
+        }
+        if (isReversing)
+        {
+            transform.position = transform.position - moveDirection * moveSpeed * Time.deltaTime;
+        }
         moveTimer += Time.deltaTime;
         if(moveTimer > maxDirectionTime)
         {
             moveTimer = 0f;
             moveDirection = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f));
             moveDirection = moveDirection.normalized;
+            isReversing = false;
         }
 
-        movementPath = new Ray(transform.position, moveDirection);
+        //update movement path:
+        movementPath.origin = transform.position;
+        movementPath.direction = moveDirection;
+
+        if (Physics.Raycast(movementPath, out objectHit, 5f))
+        {
+            if (objectHit.transform.tag == "Wall")
+            {
+                isReversing = true;
+                
+            }
+        }
+
+        Debug.DrawRay(transform.position, moveDirection * 5f);
+        Debug.Log(isReversing);
 
     }
 }
