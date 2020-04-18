@@ -7,6 +7,7 @@ public class LandMine : MonoBehaviour
     public GameObject fuseBurnout;
     public Collider cubeCollider;
     public Collider sphereCollider;
+    public GameObject explosion;
     bool landMineActive = false;
     public float fuseLength;
     float timer;
@@ -17,6 +18,7 @@ public class LandMine : MonoBehaviour
     void Start()
     {
         sphereCollider.enabled = false;
+        explosion.gameObject.SetActive(false);
         timer = 0.0f;
         fuseLength = 5.0f;
     }
@@ -50,6 +52,7 @@ public class LandMine : MonoBehaviour
         if (landMineActive == true)
         {
             sphereCollider.enabled = true;
+            explosion.gameObject.SetActive(true);
             Destroy(other.gameObject);
             Invoke("DestroyLandmine", 0.1f);
         }
