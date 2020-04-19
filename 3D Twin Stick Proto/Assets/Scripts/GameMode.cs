@@ -8,6 +8,8 @@ public class GameMode: MonoBehaviour
     public static int enemiesLeft;
     public GameObject doorOne;
     public GameObject doorTwo;
+    public GameObject key;
+    public Transform keySpawn;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,11 @@ public class GameMode: MonoBehaviour
         {
             doorOne.gameObject.SetActive(false);
             doorTwo.gameObject.SetActive(false);
+        }
+
+        if(SecondRoom3Switcher.roomThreeActive == true && enemiesLeft <=0)
+        {
+            key.gameObject.SetActive(true);
         }
         
      

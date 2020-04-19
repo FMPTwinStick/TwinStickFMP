@@ -6,7 +6,7 @@ public class SecondRoom3Switcher : MonoBehaviour
 {
     // Start is called before the first frame update
     bool roomTwoActive;
-    bool roomThreeActive;
+    public static bool roomThreeActive;
     public Camera roomTwoCam;
     public Camera roomThreeCam;
     void Start()
