@@ -7,7 +7,6 @@ public class EnemyShootingTracking : MonoBehaviour
     //Public Variables:
     public GameObject bulletObject;
     public Component cannonPivot;
-    public Transform playerTransform;
     public LayerMask layerMask;
 
     //Private Variables:
@@ -42,6 +41,7 @@ public class EnemyShootingTracking : MonoBehaviour
 
     //Tracking variables:
     private bool isTracking;
+    private Vector3 playerPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -102,7 +102,7 @@ public class EnemyShootingTracking : MonoBehaviour
         }
         if (isTracking)
         {
-            bulletPath.direction = playerTransform.position - transform.position;
+            bulletPath.direction = playerPosition - transform.position;
         }
 
         //Changes the way the cannon is facing to match:
@@ -119,6 +119,7 @@ public class EnemyShootingTracking : MonoBehaviour
                     timePassed = 0f;
                 }
                 isTracking = true;
+                playerPosition = objectHit.transform.position;
             }
             if (objectHit.transform.tag != "Player")
             {
