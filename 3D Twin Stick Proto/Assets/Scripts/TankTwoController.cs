@@ -7,6 +7,7 @@ public class TankTwoController : MonoBehaviour
 {
     //Public Game Objects:
     public GameObject bulletObject;
+    public GameObject landmine;
     public Component cannonPivot;
     public Component tankBody;
     public float maxRotationSpeed = 720.0f;
@@ -29,8 +30,6 @@ public class TankTwoController : MonoBehaviour
 
         timeBetweenShots = 0.15f;
         timePassed = 0f;
-
-
     }
 
     // Update is called once per frame
@@ -66,18 +65,40 @@ public class TankTwoController : MonoBehaviour
         {
             //rotating player:
             cannonPivot.transform.rotation = Quaternion.LookRotation(playerDirection, Vector3.up);
+            Debug.DrawLine(transform.position, transform.position + playerDirection * 5f);
 
             //Shooting:
-            if (timePassed > timeBetweenShots)
+            if (Input.GetButtonDown("TwoShoot") && timePassed > timeBetweenShots)
             {
                 timePassed = 0;
 
-                Instantiate(bulletObject, transform.position + playerDirection, Quaternion.LookRotation(playerDirection, Vector3.up));
+                Instantiate(bulletObject, transform.position + 1.5f * playerDirection, Quaternion.LookRotation(playerDirection, Vector3.up));
 
             }
+
+
         }
 
+        if (Input.GetButtonDown("TwoPlaceLandmine"))
+        {
+
+            Instantiate(landmine, transform.position, Quaternion.LookRotation(playerDirection, Vector3.up));
+        }
+
+
         timePassed += Time.deltaTime;
+
     }
+
+    //void DropMine()
+    //    {
+
+
+    //        if (Input.GetButtonDown("PlaceLandmine"))
+    //        {
+
+    //            Instantiate(landmine, transform.position + 1.5f * playerDirection, Quaternion.LookRotation(playerDirection, Vector3.up));
+    //        }
+    //    }
 
 }

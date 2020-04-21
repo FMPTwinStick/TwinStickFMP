@@ -9,6 +9,9 @@ public class EnemyMovement : MonoBehaviour
     private float moveTimer;
     private float maxDirectionTime;
     private Vector3 moveDirection;
+    private Quaternion targetRotation;
+    public float maxRotationSpeed = 200.0f;
+    public Transform tankBody;
 
     private Ray movementPath;
     private RaycastHit objectHit;
@@ -47,6 +50,11 @@ public class EnemyMovement : MonoBehaviour
             moveDirection = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f));
             moveDirection = moveDirection.normalized;
             isReversing = false;
+        }
+        if (moveDirection.sqrMagnitude > 0f)
+        {
+            targetRotation = Quaternion.LookRotation(moveDirection);
+            tankBody.transform.eulerAngles = Vector3.up * Mathf.MoveTowardsAngle(transform.eulerAngles.y, targetRotation.eulerAngles.y, maxRotationSpeed * Time.deltaTime);
         }
 
         //update movement path:

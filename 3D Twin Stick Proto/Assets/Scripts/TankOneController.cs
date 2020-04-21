@@ -82,7 +82,7 @@ public class TankOneController : MonoBehaviour
         if (Input.GetButtonDown("PlaceLandmine"))
         {
 
-            Instantiate(landmine, transform.position + 1.5f * playerDirection, Quaternion.LookRotation(playerDirection, Vector3.up));
+            Instantiate(landmine, transform.position, Quaternion.LookRotation(playerDirection, Vector3.up));
         }
 
 

@@ -157,6 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5f1ce33f3c8802418ef317688f8422b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxRotationSpeed: 200
+  tankBody: {fileID: 6858537629933352862}
 --- !u!114 &-3127960960501530533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +174,6 @@ MonoBehaviour:
   bulletObject: {fileID: 1234695747224003576, guid: 540bb482faa2242408449d12a9a0b055,
     type: 3}
   cannonPivot: {fileID: 4561972449478669706}
-  playerTransform: {fileID: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 512
