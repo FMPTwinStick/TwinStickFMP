@@ -7,7 +7,7 @@ public class BurstShotEnemy : MonoBehaviour
     //Public Variables:
     public GameObject bulletObject;
     public Component cannonPivot;
-    public Transform playerTransform;
+    
     public LayerMask layerMask;
 
     //Private Variables:
@@ -43,6 +43,7 @@ public class BurstShotEnemy : MonoBehaviour
 
     //Tracking variables:
     private bool isTracking;
+    private Vector3 playerPosition;
 
     private int burstCounter;
     private float storedTimeBetweenShots;
@@ -112,7 +113,7 @@ public class BurstShotEnemy : MonoBehaviour
         }
         if (isTracking)
         {
-            bulletPath.direction = playerTransform.position - transform.position;
+            bulletPath.direction = playerPosition - transform.position;
         }
 
         //Changes the way the cannon is facing to match:
@@ -133,6 +134,7 @@ public class BurstShotEnemy : MonoBehaviour
                 }
 
                 isTracking = true;
+                playerPosition = objectHit.transform.position;
 
                 if(burstCounter >= shotsInBurst)
                 {
