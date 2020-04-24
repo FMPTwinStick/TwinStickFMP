@@ -75,8 +75,10 @@
      <Compile Include="Assets\Scripts\OpenFinalDoor.cs" />
      <Compile Include="Assets\Scripts\RayTraceBulletBehaviour.cs" />
      <Compile Include="Assets\Scripts\RoomFourSpawner.cs" />
+     <Compile Include="Assets\Scripts\RoomOnetoTwoSwitcher.cs" />
      <Compile Include="Assets\Scripts\RoomThreeSpawner.cs" />
      <Compile Include="Assets\Scripts\RoomTwoSpawner.cs" />
+     <Compile Include="Assets\Scripts\RoomTwotoOnwSwitcher.cs" />
      <Compile Include="Assets\Scripts\SecondRoom3Switcher.cs" />
      <Compile Include="Assets\Scripts\TankOneBehaviour.cs" />
      <Compile Include="Assets\Scripts\TankOneController.cs" />

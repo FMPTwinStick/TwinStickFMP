@@ -16,12 +16,8 @@ public class FirstRoom4Switcher : MonoBehaviour
         roomFourActive = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+  
+ 
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player" && roomOneActive == true)

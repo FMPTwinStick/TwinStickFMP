@@ -90,15 +90,15 @@ public class TankOneController : MonoBehaviour
 
     }
 
-//void DropMine()
-//    {
+    //void DropMine()
+    //    {
 
 
-//        if (Input.GetButtonDown("PlaceLandmine"))
-//        {
+    //        if (Input.GetButtonDown("PlaceLandmine"))
+    //        {
 
-//            Instantiate(landmine, transform.position + 1.5f * playerDirection, Quaternion.LookRotation(playerDirection, Vector3.up));
-//        }
-//    }
+    //            Instantiate(landmine, transform.position + 1.5f * playerDirection, Quaternion.LookRotation(playerDirection, Vector3.up));
+    //        }
+    //    }
 
 }

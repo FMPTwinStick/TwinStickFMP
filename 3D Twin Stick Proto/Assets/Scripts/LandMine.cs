@@ -68,7 +68,7 @@ public class LandMine : MonoBehaviour
 
     void TriggerLandmine()
     {
-        Instantiate(fuseBurnout, transform.position, Quaternion.identity);
+        Instantiate(fuseBurnout, transform.position, Quaternion.identity);  
     }
 
 
