@@ -84,6 +84,7 @@
      <Compile Include="Assets\Scripts\RoomTwotoOnwSwitcher.cs" />
      <Compile Include="Assets\Scripts\SecondRoom3Switcher.cs" />
      <Compile Include="Assets\Scripts\ShotGunEnemyShooting.cs" />
+     <Compile Include="Assets\Scripts\SniperEnemyBehaviour.cs" />
      <Compile Include="Assets\Scripts\TankOneBehaviour.cs" />
      <Compile Include="Assets\Scripts\TankOneController.cs" />
      <Compile Include="Assets\Scripts\TankTwoBehaviour.cs" />
