@@ -67,6 +67,10 @@ public class RayTraceBulletBehaviour : MonoBehaviour
                     Destroy(objectHit.collider.transform.parent.gameObject);
                     Destroy(gameObject);
                 }
+                else if (objectHit.transform.tag == "Fire")
+                {
+                    Destroy(gameObject);
+                }
 
                 else if (currentBounces < maxBounces)
                 {
