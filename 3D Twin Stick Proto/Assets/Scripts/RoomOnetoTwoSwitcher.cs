@@ -20,7 +20,7 @@ public class RoomOnetoTwoSwitcher : MonoBehaviour
         GameMode.roomTwoActive = true;
         roomOneCam.enabled = false;
         roomTwoCam.enabled = true;
-        playerOneTank.transform.position += new Vector3(0, 0, 21); 
+        playerOneTank.transform.position += new Vector3(0, 0, 20); 
     }
 
 }

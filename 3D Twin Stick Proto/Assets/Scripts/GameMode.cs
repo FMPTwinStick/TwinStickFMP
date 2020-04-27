@@ -28,17 +28,17 @@ public class GameMode: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (enemiesLeft <= 0)
-        //{
-        //    doorOne.gameObject.SetActive(false);
-        //    doorTwo.gameObject.SetActive(false);
-        //}
+        if (enemiesLeft <= 0)
+        {
+            doorOne.gameObject.SetActive(false);
+            doorTwo.gameObject.SetActive(false);
+        }
+        else if (enemiesLeft > 0)
+        {
+            doorOne.gameObject.SetActive(true);
+            doorTwo.gameObject.SetActive(true);
+        }
 
-        //if(SecondRoom3Switcher.roomThreeActive == true && enemiesLeft <=0)
-        //{
-        //    key.gameObject.SetActive(true);
-        //}
-        
-     
+
     }
 }
