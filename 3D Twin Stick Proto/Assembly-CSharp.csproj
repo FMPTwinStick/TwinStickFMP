@@ -63,6 +63,8 @@
      <Compile Include="Assets\Scripts\EnemyShootingTracking.cs" />
      <Compile Include="Assets\Scripts\FirstRoom2Switcher.cs" />
      <Compile Include="Assets\Scripts\FirstRoom4Switcher.cs" />
+     <Compile Include="Assets\Scripts\FlameThrowerEnemy.cs" />
+     <Compile Include="Assets\Scripts\FlameThrowerFireBehaviour.cs" />
      <Compile Include="Assets\Scripts\GameMode.cs" />
      <Compile Include="Assets\Scripts\LandMine.cs" />
      <Compile Include="Assets\Scripts\Old Scripts\CameraBehaviour.cs" />
