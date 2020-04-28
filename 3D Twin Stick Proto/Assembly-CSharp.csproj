@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\ActivateFinalRoom.cs" />
      <Compile Include="Assets\Scripts\ActivateRoomTwo.cs" />
      <Compile Include="Assets\Scripts\BulletBehaviour.cs" />
      <Compile Include="Assets\Scripts\BurstShotEnemy.cs" />
@@ -79,6 +80,7 @@
      <Compile Include="Assets\Scripts\RayTraceBulletBehaviour.cs" />
      <Compile Include="Assets\Scripts\RocketBehaviour.cs" />
      <Compile Include="Assets\Scripts\RoomFourSpawner.cs" />
+     <Compile Include="Assets\Scripts\RoomOneToFinalSwitcher.cs" />
      <Compile Include="Assets\Scripts\RoomOnetoTwoSwitcher.cs" />
      <Compile Include="Assets\Scripts\RoomThreeSpawner.cs" />
      <Compile Include="Assets\Scripts\RoomTwoSpawner.cs" />
@@ -89,6 +91,7 @@
      <Compile Include="Assets\Scripts\TankOneController.cs" />
      <Compile Include="Assets\Scripts\TankTwoBehaviour.cs" />
      <Compile Include="Assets\Scripts\TankTwoController.cs" />
+     <Compile Include="Assets\Scripts\UnlockFinalDoor.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/Merlin.Aldrick.ADM/Documents/GitHub/TwinStickFMP1/3D Twin Stick Proto/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

@@ -8,12 +8,14 @@ public class ActivateRoomTwo : MonoBehaviour
     public GameObject doorTwo;
     public GameObject enemyOne;
     public GameObject enemyTwo;
+   
 
     // Start is called before the first frame update
     void Start()
     {
         enemyOne.SetActive(false);
         enemyTwo.SetActive(false);
+  
     }
 
     // Update is called once per frame
@@ -31,6 +33,7 @@ public class ActivateRoomTwo : MonoBehaviour
       //  doorTwo.SetActive(true);
         enemyOne.SetActive(true);
         enemyTwo.SetActive(true);
+        GameMode.keySpawnable = true; 
         Destroy(gameObject);
     }
 
