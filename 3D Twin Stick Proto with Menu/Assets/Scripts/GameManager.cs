@@ -16,13 +16,14 @@ public class GameManager : MonoBehaviour
     private Camera  camera;
     private Vector3 m_ogCamPosition;
     private float   m_ogCamOrthographicSize;
+    private bool    m_isSlowMoAvailable;
 
-    private SlowMoManager slowMoManager;
+    //private SlowMoManager slowMoManager;
 
-    public SlowMoManager getTimeManager()
-    {
-        return slowMoManager;
-    }
+    //public SlowMoManager getTimeManager()
+    //{
+    //    return slowMoManager;
+    //}
 
     private float defaultSlowTimeScale;
     public bool isSlowMo;
@@ -46,7 +47,7 @@ public class GameManager : MonoBehaviour
     //Start is called before the first frame of update:
     void Start()
     {
-        slowMoManager           = new SlowMoManager();
+        //slowMoManager           = new SlowMoManager();
 
         defaultSlowTimeScale    = 0.1f;
         isSlowMo                = false;
@@ -54,6 +55,9 @@ public class GameManager : MonoBehaviour
         camera                  = Camera.main;
         m_ogCamPosition         = camera.transform.position;
         m_ogCamOrthographicSize = camera.orthographicSize;
+        m_isSlowMoAvailable     = true;
+
+        RayTraceBulletBehaviour.canAffectTimeScale = true;
     }
 
     // Update is called once per frame
@@ -75,9 +79,11 @@ public class GameManager : MonoBehaviour
     }
     void SlowTime()
     {
-        Time.timeScale = defaultSlowTimeScale;
-        Time.fixedDeltaTime = Time.timeScale * 0.02f;
-        Debug.Log("SlowTime");
+        if (m_isSlowMoAvailable)
+        {
+            Time.timeScale = defaultSlowTimeScale;
+            Time.fixedDeltaTime = Time.timeScale * 0.02f;
+        }
     }
 
     void SlowTime( float timeScale )
@@ -89,16 +95,23 @@ public class GameManager : MonoBehaviour
     void ResetTime()
     {
         Time.timeScale = 1f;
+        RayTraceBulletBehaviour.canAffectTimeScale = true;
     }
 
     public void FollowCam(Vector3 position)
     {
-        //camera = Camera.main;
-        //m_ogCamPosition = camera.transform.position;
-        //m_ogCamOrthographicSize = camera.orthographicSize;
-        Vector3 followPos = new Vector3(position.x, position.y+10f, position.z-10f);
-        camera.transform.position = followPos;
-        camera.orthographicSize = 2f;
+        if (m_isSlowMoAvailable)
+        {
+            if (camera == null)
+            {
+                camera = Camera.main;
+                m_ogCamPosition = camera.transform.position;
+                m_ogCamOrthographicSize = camera.orthographicSize;
+            }
+            Vector3 followPos = new Vector3(position.x, position.y + 10f, position.z - 10f);
+            camera.transform.position = followPos;
+            camera.orthographicSize = 2f;
+        }
     }
 
     public void ResetCam()

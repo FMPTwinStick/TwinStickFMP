@@ -8,12 +8,13 @@ using UnityEngine.SceneManagement;
 public class RayTraceBulletBehaviour : MonoBehaviour
 {
     //Public Variables:
-    
+
+    public static bool canAffectTimeScale;
 
     //Private Variables:
 
-        ///Move speed variable:
-        private float   moveSpeed;
+    ///Move speed variable:
+    private float   moveSpeed;
 
         ///Variables for the bullet's path and reflections:
         private Ray bulletPath;
@@ -30,11 +31,11 @@ public class RayTraceBulletBehaviour : MonoBehaviour
     private Ray slowMoDetectorRay;
     private RaycastHit objectHitSlowMo;
 
-    private bool canAffectTimeScale;
+    private bool isASlowMoBullet;
+    
 
     //FollowCam Variables:
     private bool isFollowCamActive;
-
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +49,9 @@ public class RayTraceBulletBehaviour : MonoBehaviour
         currentBounces      = 0;
         maxBounces          = 1;
 
-        canAffectTimeScale = true;
+        //canAffectTimeScale = true;
+
+        isASlowMoBullet = false;
     }
 
     // Update is called once per frame
@@ -92,7 +95,9 @@ public class RayTraceBulletBehaviour : MonoBehaviour
                     {
                         GameManager.GetGameManager().isSlowMo = true;
                         isFollowCamActive = true;
+                        isASlowMoBullet = true;
                         canAffectTimeScale = false;
+                        
                     }
                   
                 }
@@ -118,6 +123,7 @@ public class RayTraceBulletBehaviour : MonoBehaviour
         {
             if (objectHit.collider.gameObject != gameObject)
             {
+                
                 //Destroying the bullet and the object hit if it is a tank or another bullet:
                 if (objectHit.transform.tag == "Bullet")
                 {
@@ -158,11 +164,13 @@ public class RayTraceBulletBehaviour : MonoBehaviour
                     Destroy(gameObject);
                 }
 
-                GameManager.GetGameManager().isSlowMo = false;
-                canAffectTimeScale = true;
-                isFollowCamActive = false;
-                GameManager.GetGameManager().ResetCam();
-
+                if (isASlowMoBullet)
+                {
+                    GameManager.GetGameManager().isSlowMo = false;
+                    isFollowCamActive = false;
+                    GameManager.GetGameManager().ResetCam();
+                    isASlowMoBullet = false;
+                }
             }
         }
     }

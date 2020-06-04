@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlowMoManager
+public class SlowMoManager : MonoBehaviour
 {
     private float defaultSlowTimeScale;
     public bool isSlowMo;
@@ -35,7 +35,7 @@ public class SlowMoManager
     {
         Time.timeScale = defaultSlowTimeScale;
         Time.fixedDeltaTime = Time.timeScale * 0.02f;
-        Debug.Log("SlowTime");
+        //Debug.Log("SlowTime");
     }
 
     void SlowTime(float timeScale)
