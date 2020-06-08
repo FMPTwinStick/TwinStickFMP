@@ -28,6 +28,12 @@ public class GameManager : MonoBehaviour
     private float defaultSlowTimeScale;
     public bool isSlowMo;
 
+    private float followCamLerpPercent;
+    private float followCamLerpSpeed;
+    private float slowMoLerpPercent;
+    private float slowMoLerpSpeed;
+
+
 
     // Awake is called befoee anything else:
     void Awake()
@@ -58,12 +64,18 @@ public class GameManager : MonoBehaviour
         m_isSlowMoAvailable     = true;
 
         RayTraceBulletBehaviour.canAffectTimeScale = true;
+
+        followCamLerpPercent    = 0f;
+        followCamLerpSpeed      = 0.003f;
+        slowMoLerpPercent       = 0f;
+        slowMoLerpSpeed         = 0.003f;
     }
 
     // Update is called once per frame
     void Update()
     {
         AlterTime();
+        StoreOriginalCameraSettings();
     }
 
     void AlterTime()
@@ -81,7 +93,15 @@ public class GameManager : MonoBehaviour
     {
         if (m_isSlowMoAvailable)
         {
-            Time.timeScale = defaultSlowTimeScale;
+            if (slowMoLerpPercent < 1f)
+            {
+                slowMoLerpPercent += slowMoLerpSpeed;
+            }
+            if (slowMoLerpPercent > 1f)
+            {
+                slowMoLerpPercent = 1f;
+            }
+            Time.timeScale = Mathf.Lerp(1f,defaultSlowTimeScale,slowMoLerpPercent);
             Time.fixedDeltaTime = Time.timeScale * 0.02f;
         }
     }
@@ -102,21 +122,35 @@ public class GameManager : MonoBehaviour
     {
         if (m_isSlowMoAvailable)
         {
-            if (camera == null)
-            {
-                camera = Camera.main;
-                m_ogCamPosition = camera.transform.position;
-                m_ogCamOrthographicSize = camera.orthographicSize;
-            }
+            StoreOriginalCameraSettings();
             Vector3 followPos = new Vector3(position.x, position.y + 10f, position.z - 10f);
-            camera.transform.position = followPos;
-            camera.orthographicSize = 2f;
+            if (followCamLerpPercent < 1f)
+            {
+                followCamLerpPercent += followCamLerpSpeed;
+            }
+            if(followCamLerpPercent > 1f)
+            {
+                followCamLerpPercent = 1f;
+            }
+            camera.transform.position   = Vector3.Lerp(m_ogCamPosition,followPos,followCamLerpPercent);
+            camera.orthographicSize     = Mathf.Lerp(m_ogCamOrthographicSize, 2f, followCamLerpPercent);
         }
     }
 
     public void ResetCam()
     {
+        followCamLerpPercent = 0f;
         camera.transform.position = m_ogCamPosition;
         camera.orthographicSize = m_ogCamOrthographicSize;
+    }
+
+    void StoreOriginalCameraSettings()
+    {
+        if (camera == null)
+        {
+            camera = Camera.main;
+            m_ogCamPosition = camera.transform.position;
+            m_ogCamOrthographicSize = camera.orthographicSize;
+        }
     }
 }
