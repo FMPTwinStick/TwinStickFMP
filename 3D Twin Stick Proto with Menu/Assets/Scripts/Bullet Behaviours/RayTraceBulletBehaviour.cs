@@ -36,9 +36,6 @@ public class RayTraceBulletBehaviour : MonoBehaviour
     private float currentSlowMoTimer;
     
 
-    //FollowCam Variables:
-    private bool isFollowCamActive;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -65,7 +62,6 @@ public class RayTraceBulletBehaviour : MonoBehaviour
         Movement();
         UpdateRays();
         CheckForSlowMo();
-        CheckForFollowCam();
         Collisions();
         TimeSlowMo();
         Debug.DrawRay(bulletPath.origin, bulletPath.direction* moveSpeed * (Time.deltaTime + .5f));
@@ -102,33 +98,32 @@ public class RayTraceBulletBehaviour : MonoBehaviour
                 {
                     if (objectHitSlowMo.transform.tag == "Tank")
                     {
-                        GameManager.GetGameManager().isSlowMo = true;
-                        isFollowCamActive = true;
                         isASlowMoBullet = true;
                         canAffectTimeScale = false;
                         
+                    }
+                    else
+                    {
+                        isASlowMoBullet = false;
                     }
                   
                 }
             }
             Debug.DrawRay(slowMoDetectorRay.origin, slowMoDetectorRay.direction * moveSpeed);
         }
-    }
 
-    //CheckForFollowCam sees if the follow cam is active on this bullet and updates the GameManager if neccessary:
-    void CheckForFollowCam()
-    {
-        if (isFollowCamActive)
+        if(isASlowMoBullet)
         {
-            GameManager.GetGameManager().FollowCam(transform.position);
+            GameManager.GetGameManager().ActivateSlowMoWithFollowCam(transform.position);
         }
     }
+
+    
     //The reflections functions, dictates what the bullet should do when it's path is about to collide with another object
     //including reflecting if has enough bounces remaining:
     void Collisions()
     {
-        
-        
+       
         //Reading what the ray has collided with:
         if( Physics.Raycast(bulletPath,out objectHit, moveSpeed * Time.deltaTime + .5f))
         {
@@ -150,7 +145,6 @@ public class RayTraceBulletBehaviour : MonoBehaviour
                 }
                 else if (objectHit.transform.tag == "Player")
                 {
-                    StopSlowMo();
                     Destroy(objectHit.collider.transform.parent.gameObject);
                     Destroy(gameObject);
                     SceneManager.LoadScene("DeathScreen");
@@ -181,6 +175,8 @@ public class RayTraceBulletBehaviour : MonoBehaviour
                 {
                     StopSlowMo();
                 }
+                
+                
             }
         }
     }
@@ -200,10 +196,8 @@ public class RayTraceBulletBehaviour : MonoBehaviour
 
     public void StopSlowMo()
     {
+        GameManager.GetGameManager().DeactivateSlowMo();
         currentSlowMoTimer = 0f;
-        GameManager.GetGameManager().isSlowMo = false;
-        isFollowCamActive = false;
-        GameManager.GetGameManager().ResetCam();
         isASlowMoBullet = false;
     }
 

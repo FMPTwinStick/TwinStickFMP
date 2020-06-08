@@ -13,31 +13,14 @@ public class GameManager : MonoBehaviour
         return instance;
     }
 
-    private Camera  camera;
-    private Vector3 m_ogCamPosition;
-    private float   m_ogCamOrthographicSize;
-    private bool    m_isSlowMoAvailable;
-
-    //private SlowMoManager slowMoManager;
-
-    //public SlowMoManager getTimeManager()
-    //{
-    //    return slowMoManager;
-    //}
-
-    private float defaultSlowTimeScale;
-    public bool isSlowMo;
-
-    private float followCamLerpPercent;
-    private float followCamLerpSpeed;
-    private float slowMoLerpPercent;
-    private float slowMoLerpSpeed;
-
-
+    //Slow Motion variables:
+    private SlowMoManager slowMoManager;
+    private bool m_isSlowMoAvailable;
 
     // Awake is called befoee anything else:
     void Awake()
     {
+        //Setting up a single instance of the GameManager that persists through scenes and avoids duplication:
         if(instance != null)
         {
             Destroy(this.gameObject);
@@ -47,110 +30,53 @@ public class GameManager : MonoBehaviour
             instance = this;
             GameObject.DontDestroyOnLoad(this.gameObject);
         }
+
+        //Adding the SlowMoManager as a component:
+        if(slowMoManager == null)
+        {
+            slowMoManager = gameObject.AddComponent<SlowMoManager>();
+        }
         
     }
 
     //Start is called before the first frame of update:
     void Start()
     {
-        //slowMoManager           = new SlowMoManager();
-
-        defaultSlowTimeScale    = 0.1f;
-        isSlowMo                = false;
-
-        camera                  = Camera.main;
-        m_ogCamPosition         = camera.transform.position;
-        m_ogCamOrthographicSize = camera.orthographicSize;
         m_isSlowMoAvailable     = true;
-
-        RayTraceBulletBehaviour.canAffectTimeScale = true;
-
-        followCamLerpPercent    = 0f;
-        followCamLerpSpeed      = 0.003f;
-        slowMoLerpPercent       = 0f;
-        slowMoLerpSpeed         = 0.003f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        AlterTime();
-        StoreOriginalCameraSettings();
+    
     }
 
-    void AlterTime()
+    //Getter and setters for isSlowMoAvailable:
+    public bool GetIsSlowMoAvailable()
     {
-        if (isSlowMo)
-        {
-            SlowTime();
-        }
-        if (!isSlowMo)
-        {
-            ResetTime();
-        }
-    }
-    void SlowTime()
-    {
-        if (m_isSlowMoAvailable)
-        {
-            if (slowMoLerpPercent < 1f)
-            {
-                slowMoLerpPercent += slowMoLerpSpeed;
-            }
-            if (slowMoLerpPercent > 1f)
-            {
-                slowMoLerpPercent = 1f;
-            }
-            Time.timeScale = Mathf.Lerp(1f,defaultSlowTimeScale,slowMoLerpPercent);
-            Time.fixedDeltaTime = Time.timeScale * 0.02f;
-        }
+        return m_isSlowMoAvailable;
     }
 
-    void SlowTime( float timeScale )
+    public void MakeSlowMoAvailable()
     {
-        Time.timeScale = timeScale;
-        Time.fixedDeltaTime = Time.timeScale * 0.02f;
+        m_isSlowMoAvailable = true;
     }
 
-    void ResetTime()
+    public void MakeSlowMoUnavailable()
     {
-        Time.timeScale = 1f;
-        RayTraceBulletBehaviour.canAffectTimeScale = true;
+        m_isSlowMoAvailable = false;
     }
 
-    public void FollowCam(Vector3 position)
+    //Slow Motion activation and deactivation functions:
+    public void ActivateSlowMoWithFollowCam( Vector3 followCamPosition)
     {
-        if (m_isSlowMoAvailable)
-        {
-            StoreOriginalCameraSettings();
-            Vector3 followPos = new Vector3(position.x, position.y + 10f, position.z - 10f);
-            if (followCamLerpPercent < 1f)
-            {
-                followCamLerpPercent += followCamLerpSpeed;
-            }
-            if(followCamLerpPercent > 1f)
-            {
-                followCamLerpPercent = 1f;
-            }
-            camera.transform.position   = Vector3.Lerp(m_ogCamPosition,followPos,followCamLerpPercent);
-            camera.orthographicSize     = Mathf.Lerp(m_ogCamOrthographicSize, 2f, followCamLerpPercent);
-        }
+        slowMoManager.isSlowMo = true;
+        slowMoManager.FollowCam(followCamPosition);
     }
 
-    public void ResetCam()
+    public void DeactivateSlowMo()
     {
-        followCamLerpPercent = 0f;
-        camera.transform.position = m_ogCamPosition;
-        camera.orthographicSize = m_ogCamOrthographicSize;
-    }
-
-    void StoreOriginalCameraSettings()
-    {
-        if (camera == null)
-        {
-            camera = Camera.main;
-            m_ogCamPosition = camera.transform.position;
-            m_ogCamOrthographicSize = camera.orthographicSize;
-        }
+        slowMoManager.isSlowMo = false;
+        slowMoManager.ResetCam();
     }
 }

@@ -58,7 +58,6 @@
      <Compile Include="Assets\Scripts\Bullet Behaviours\BulletBehaviour.cs" />
      <Compile Include="Assets\Scripts\Bullet Behaviours\FlameThrowerFireBehaviour.cs" />
      <Compile Include="Assets\Scripts\Bullet Behaviours\LandMine.cs" />
-     <Compile Include="Assets\Scripts\Bullet Behaviours\PlayerRayTraceBullet.cs" />
      <Compile Include="Assets\Scripts\Bullet Behaviours\RayTraceBulletBehaviour.cs" />
      <Compile Include="Assets\Scripts\Bullet Behaviours\RocketBehaviour.cs" />
      <Compile Include="Assets\Scripts\ClassicModeScripts\AddEnemiesLevel3.cs" />
