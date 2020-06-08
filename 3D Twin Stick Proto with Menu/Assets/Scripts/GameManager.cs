@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     private SlowMoManager slowMoManager;
     private bool m_isSlowMoAvailable;
 
-    // Awake is called befoee anything else:
+    // Awake is called before anything else:
     void Awake()
     {
         //Setting up a single instance of the GameManager that persists through scenes and avoids duplication:
