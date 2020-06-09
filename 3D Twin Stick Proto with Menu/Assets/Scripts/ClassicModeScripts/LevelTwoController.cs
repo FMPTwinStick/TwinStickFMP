@@ -5,13 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class LevelTwoController : MonoBehaviour
 {
-    public GameObject door;
-
-
     // Start is called before the first frame update
     void Start()
     {
-
+        GameManager.GetGameManager().SetEnemiesLeft(2);
 
     }
 
@@ -19,8 +16,15 @@ public class LevelTwoController : MonoBehaviour
     void Update()
     {
 
-        if (GameMode.enemiesLeft <= 0)
+        if (GameManager.GetGameManager().GetEnemiesLeft() == 1)
         {
+            GameManager.GetGameManager().MakeSlowMoAvailable();
+        }
+
+        if (GameManager.GetGameManager().GetEnemiesLeft() <= 0)
+        {
+            GameManager.GetGameManager().MakeSlowMoUnavailable();
+            GameManager.GetGameManager().DeactivateSlowMo();
             SceneManager.LoadScene("ClassicLevel3");
         }
 

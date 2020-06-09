@@ -17,11 +17,14 @@ public class GameManager : MonoBehaviour
     private SlowMoManager slowMoManager;
     private bool m_isSlowMoAvailable;
 
+    //General variables
+    private int m_enemiesLeft;
+
     // Awake is called befoee anything else:
     void Awake()
     {
         //Setting up a single instance of the GameManager that persists through scenes and avoids duplication:
-        if(instance != null)
+        if (instance != null)
         {
             Destroy(this.gameObject);
         }
@@ -32,23 +35,24 @@ public class GameManager : MonoBehaviour
         }
 
         //Adding the SlowMoManager as a component:
-        if(slowMoManager == null)
+        if (slowMoManager == null)
         {
             slowMoManager = gameObject.AddComponent<SlowMoManager>();
         }
-        
+
     }
 
     //Start is called before the first frame of update:
     void Start()
     {
-        m_isSlowMoAvailable     = true;
+        m_isSlowMoAvailable = false;
+        m_enemiesLeft = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-    
+
     }
 
     //Getter and setters for isSlowMoAvailable:
@@ -68,7 +72,7 @@ public class GameManager : MonoBehaviour
     }
 
     //Slow Motion activation and deactivation functions:
-    public void ActivateSlowMoWithFollowCam( Vector3 followCamPosition)
+    public void ActivateSlowMoWithFollowCam(Vector3 followCamPosition)
     {
         slowMoManager.isSlowMo = true;
         slowMoManager.FollowCam(followCamPosition);
@@ -78,5 +82,21 @@ public class GameManager : MonoBehaviour
     {
         slowMoManager.isSlowMo = false;
         slowMoManager.ResetCam();
+    }
+
+
+    public int GetEnemiesLeft()
+    {
+        return m_enemiesLeft;
+    }
+
+    public void SetEnemiesLeft(int numOfEnemies)
+    {
+        m_enemiesLeft = numOfEnemies;
+    }
+
+    public void KillEnemy()
+    {
+        m_enemiesLeft -= 1;
     }
 }

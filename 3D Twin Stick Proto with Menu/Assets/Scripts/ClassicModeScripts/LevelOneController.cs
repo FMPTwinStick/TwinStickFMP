@@ -5,22 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class LevelOneController : MonoBehaviour
 {
-    public GameObject door;
-
-
     // Start is called before the first frame update
     void Start()
     {
-     
-
+        GameManager.GetGameManager().SetEnemiesLeft(2);
     }
 
     // Update is called once per frame
     void Update()
     {
 
-     if(GameMode.enemiesLeft <= 0)
+
+     if(GameManager.GetGameManager().GetEnemiesLeft() == 1)
         {
+            GameManager.GetGameManager().MakeSlowMoAvailable();
+        }
+
+     if(GameManager.GetGameManager().GetEnemiesLeft() <= 0)
+        {
+            GameManager.GetGameManager().MakeSlowMoUnavailable();
+            GameManager.GetGameManager().DeactivateSlowMo();
             SceneManager.LoadScene("ClassicLevel2");
         }
 

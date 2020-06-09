@@ -73,7 +73,8 @@ public class RocketBehaviour : MonoBehaviour
                 {
                     Destroy(objectHit.collider.transform.parent.gameObject);
                     Destroy(gameObject);
-                    GameMode.enemiesLeft -= 1;
+                    GameManager.GetGameManager().KillEnemy();
+
                 }
                 else if (objectHit.transform.tag == "Player")
                 {
