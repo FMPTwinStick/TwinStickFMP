@@ -124,9 +124,8 @@ public class RayTraceBulletBehaviour : MonoBehaviour
     //including reflecting if has enough bounces remaining:
     void Collisions()
     {
-       
         //Reading what the ray has collided with:
-        if( Physics.Raycast(bulletPath,out objectHit, moveSpeed * Time.deltaTime + .5f))
+        if ( Physics.Raycast(bulletPath,out objectHit, moveSpeed * Time.deltaTime + .5f))
         {
             if (objectHit.collider.gameObject != gameObject)
             {
@@ -141,6 +140,7 @@ public class RayTraceBulletBehaviour : MonoBehaviour
                 else if (objectHit.transform.tag == "Tank")
                 {
                     AudioManager.GetAudioManager().PlayTankHitSound();
+                    Score.scoreValue += 100;
                     Destroy(objectHit.collider.transform.parent.gameObject );
                     Destroy(gameObject);
                     GameManager.GetGameManager().KillEnemy();
@@ -205,7 +205,4 @@ public class RayTraceBulletBehaviour : MonoBehaviour
         currentSlowMoTimer = 0f;
         isASlowMoBullet = false;
     }
-
-
-
 }
