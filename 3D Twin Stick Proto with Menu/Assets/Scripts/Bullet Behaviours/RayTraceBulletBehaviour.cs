@@ -49,7 +49,7 @@ public class RayTraceBulletBehaviour : MonoBehaviour
         currentBounces      = 0;
         maxBounces          = 1;
 
-        //canAffectTimeScale = true;
+        canAffectTimeScale = true;
 
         isASlowMoBullet = false;
 

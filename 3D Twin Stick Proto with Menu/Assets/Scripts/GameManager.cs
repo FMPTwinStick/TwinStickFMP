@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
             slowMoManager = gameObject.AddComponent<SlowMoManager>();
         }
 
+        
+
     }
 
     //Start is called before the first frame of update:
@@ -47,6 +49,8 @@ public class GameManager : MonoBehaviour
     {
         m_isSlowMoAvailable = false;
         m_enemiesLeft = 0;
+
+        DeactivateSlowMo();
     }
 
     // Update is called once per frame

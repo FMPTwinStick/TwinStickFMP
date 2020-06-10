@@ -13,7 +13,7 @@ public class GameMode: MonoBehaviour
     public GameObject finalDoorOne;
     public GameObject finalDoorTwo;
     public GameObject key;
-    public Camera roomThreeCam;
+    //public Camera roomThreeCam;
     public static bool roomOneActive;
     public static bool roomTwoActive;
     public static bool roomThreeActive;
@@ -30,7 +30,7 @@ public class GameMode: MonoBehaviour
         roomFourActive = false;
         finalKeyActive = false;
         keySpawnable = false;
-        roomThreeCam.enabled = false;
+        //roomThreeCam.enabled = false;
   
      
     }

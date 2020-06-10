@@ -4331,7 +4331,6 @@ MonoBehaviour:
   finalDoorOne: {fileID: 697255578}
   finalDoorTwo: {fileID: 697255578}
   key: {fileID: 560960071}
-  roomThreeCam: {fileID: 0}
 --- !u!65 &1751993861
 BoxCollider:
   m_ObjectHideFlags: 0

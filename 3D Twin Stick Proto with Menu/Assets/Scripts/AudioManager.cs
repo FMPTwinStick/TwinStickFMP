@@ -18,6 +18,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip tankMoveSound;
     public AudioClip placeMineSound;
 
+    public AudioClip music;
+
     //AudioSource:
     private AudioSource audioSource;
 
@@ -45,6 +47,12 @@ public class AudioManager : MonoBehaviour
 
         //Initilising variables:
         m_worldPitch = 1f;
+
+        //Play Music:
+
+        audioSource.loop = true;
+        audioSource.clip = music;
+        audioSource.Play();
     }
 
     // Update is called once per frame
