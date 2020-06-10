@@ -128,6 +128,7 @@ public class EnemyShootingTracking : MonoBehaviour
                 if (timePassed > timeBetweenShots)
                 {
                     Instantiate(bulletObject, transform.position + 1.5f * bulletPath.direction, Quaternion.LookRotation(bulletPath.direction, Vector3.up));
+                    AudioManager.GetAudioManager().PlayTankFireSound();
                     timePassed = 0f;
                 }
                 isTracking = true;

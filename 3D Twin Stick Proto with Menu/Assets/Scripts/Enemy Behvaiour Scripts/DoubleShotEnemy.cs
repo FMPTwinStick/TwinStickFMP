@@ -134,6 +134,7 @@ public class DoubleShotEnemy : MonoBehaviour
                     bulletPathNormal = new Vector3(-bulletPath.direction.z, 0, bulletPath.direction.x);
                     Instantiate(bulletObject, transform.position + 1.5f * bulletPath.direction + 0.25f * bulletPathNormal, Quaternion.LookRotation(bulletPath.direction, Vector3.up));
                     Instantiate(bulletObject, transform.position + 1.5f * bulletPath.direction - 0.25f * bulletPathNormal, Quaternion.LookRotation(bulletPath.direction, Vector3.up));
+                    AudioManager.GetAudioManager().PlayTankFireSound();
                     timePassed = 0f;
                 }
                 isTracking = true;

@@ -137,7 +137,7 @@ public class ShotGunEnemyShooting : MonoBehaviour
                     Instantiate(bulletObject, transform.position + 1.5f * bulletPath.direction, Quaternion.LookRotation(bulletPath.direction, Vector3.up));
                     Instantiate(bulletObject, transform.position + 1.5f * bulletPath.direction - 0.125f * bulletPathNormal, Quaternion.LookRotation(bulletPath.direction, Vector3.up) * Quaternion.Euler(0f, -15f, 0f));
                     Instantiate(bulletObject, transform.position + 1.5f * bulletPath.direction - 0.25f * bulletPathNormal, Quaternion.LookRotation(bulletPath.direction, Vector3.up) * Quaternion.Euler(0f, -30f, 0f));
-                    
+                    AudioManager.GetAudioManager().PlayTankFireSound();
                     timePassed = 0f;
                 }
                 isTracking = true;

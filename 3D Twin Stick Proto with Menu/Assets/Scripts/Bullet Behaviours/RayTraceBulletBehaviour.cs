@@ -8,9 +8,10 @@ using UnityEngine.SceneManagement;
 public class RayTraceBulletBehaviour : MonoBehaviour
 {
     //Public Variables:
-
+   
     public static bool canAffectTimeScale;
 
+    
     //Private Variables:
 
     ///Move speed variable:
@@ -139,12 +140,16 @@ public class RayTraceBulletBehaviour : MonoBehaviour
                 }
                 else if (objectHit.transform.tag == "Tank")
                 {
+                    AudioManager.GetAudioManager().PlayTankHitSound();
                     Destroy(objectHit.collider.transform.parent.gameObject );
                     Destroy(gameObject);
                     GameManager.GetGameManager().KillEnemy();
+                    
                 }
                 else if (objectHit.transform.tag == "Player")
                 {
+                    AudioManager.GetAudioManager().PlayTankHitSound();
+                    StopSlowMo();
                     Destroy(objectHit.collider.transform.parent.gameObject);
                     Destroy(gameObject);
                     SceneManager.LoadScene("DeathScreen");

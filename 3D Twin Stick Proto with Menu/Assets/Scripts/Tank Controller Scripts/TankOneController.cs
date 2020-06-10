@@ -76,6 +76,7 @@ public class TankOneController : MonoBehaviour
                 timePassed = 0;
 
                 Instantiate(bulletObject, transform.position + 1.5f * playerDirection, Quaternion.LookRotation(playerDirection, Vector3.up));
+                AudioManager.GetAudioManager().PlayTankFireSound();
 
             }
 
@@ -84,8 +85,8 @@ public class TankOneController : MonoBehaviour
 
         if (Input.GetButtonDown("PlaceLandmine"))
         {
-
             Instantiate(landmine, transform.position, Quaternion.LookRotation(playerDirection, Vector3.up));
+            AudioManager.GetAudioManager().PlayPlaceMineSound();
         }
 
         //updating timePassed:
