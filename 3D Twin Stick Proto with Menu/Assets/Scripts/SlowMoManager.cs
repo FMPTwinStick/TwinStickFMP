@@ -59,6 +59,9 @@ public class SlowMoManager : MonoBehaviour
         {
             ResetTime();
         }
+
+        //Changing pitch of sounds to match:
+        AudioManager.GetAudioManager().SetWorldPitch(1 - slowMoLerpPercent);
     }
 
     //Slows time to the default slow mo time scale:
@@ -91,6 +94,7 @@ public class SlowMoManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         RayTraceBulletBehaviour.canAffectTimeScale = true;
+        slowMoLerpPercent = 0f;
     }
 
     //follow cam takes a position and makes the camera follow that position:
