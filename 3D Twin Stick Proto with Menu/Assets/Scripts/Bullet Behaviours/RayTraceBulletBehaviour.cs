@@ -96,7 +96,7 @@ public class RayTraceBulletBehaviour : MonoBehaviour
     {
         if (canAffectTimeScale)
         {
-            if (Physics.Raycast(slowMoDetectorRay.origin, slowMoDetectorRay.direction, out objectHitSlowMo, moveSpeed * 0.5f))
+            if (Physics.Raycast(slowMoDetectorRay.origin, slowMoDetectorRay.direction, out objectHitSlowMo, moveSpeed))
             {
 
                 if (objectHitSlowMo.collider.gameObject != gameObject)
@@ -120,7 +120,7 @@ public class RayTraceBulletBehaviour : MonoBehaviour
         if(isASlowMoBullet)
         {
             //GameManager.GetGameManager().ActivateSlowMoWithFollowCam(transform.position);
-            GameManager.GetGameManager().ActivateSlowMoWithRelativePositions(transform.position, predictedHitPosition, moveSpeed * 0.5f);
+            GameManager.GetGameManager().ActivateSlowMoWithRelativePositions(transform.position, predictedHitPosition, moveSpeed);
         }
     }
 
@@ -144,6 +144,7 @@ public class RayTraceBulletBehaviour : MonoBehaviour
                 }
                 else if (objectHit.transform.tag == "Tank")
                 {
+                    VFXManager.GetVFXManager().InstantiateBigExplosion(objectHit.transform);
                     AudioManager.GetAudioManager().PlayTankHitSound();
                     Score.scoreValue += 100;
                     Destroy(objectHit.collider.transform.parent.gameObject );

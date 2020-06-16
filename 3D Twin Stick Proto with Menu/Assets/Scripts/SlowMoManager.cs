@@ -156,6 +156,7 @@ public class SlowMoManager : MonoBehaviour
     //Resets the camera to its original settings in the scene:
     public void ResetCam()
     {
+        StoreOriginalCameraSettings();
         followCamLerpPercent = 0f;
         camera.transform.position = m_ogCamPosition;
         camera.orthographicSize = m_ogCamOrthographicSize;
