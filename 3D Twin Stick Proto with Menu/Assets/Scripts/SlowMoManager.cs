@@ -20,6 +20,8 @@ public class SlowMoManager : MonoBehaviour
     private float slowMoLerpPercent;
     private float slowMoLerpSpeed;
 
+    private float ratioLerpPercent;
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,9 +38,11 @@ public class SlowMoManager : MonoBehaviour
         RayTraceBulletBehaviour.canAffectTimeScale = true;
 
         followCamLerpPercent = 0f;
-        followCamLerpSpeed = 0.003f;
+        followCamLerpSpeed = 0.006f;
         slowMoLerpPercent = 0f;
-        slowMoLerpSpeed = 0.003f;
+        slowMoLerpSpeed = 0.006f;
+
+        ratioLerpPercent = 0f;
     }
 
     // Update is called once per frame
@@ -89,6 +93,24 @@ public class SlowMoManager : MonoBehaviour
         Time.fixedDeltaTime = Time.timeScale * 0.02f;
     }
 
+    //Slow time function based of how close two objects are compared to their initial distance:
+    public void SlowTimeWithVector3Ratio(Vector3 bulletPosition, Vector3 tankPosition, float initialDistance)
+    {
+        if (GameManager.GetGameManager().GetIsSlowMoAvailable())
+        {
+            //Calcutlating the distance between the bullet and the tank:
+            ratioLerpPercent = (1 - (Mathf.Sqrt(Mathf.Pow((bulletPosition.x - tankPosition.x), 2f) + Mathf.Pow((bulletPosition.z - tankPosition.z), 2f) / initialDistance)));
+
+            //Clamping the lerp percent at 1f:
+            if (ratioLerpPercent > 1f)
+            {
+                ratioLerpPercent = 1f;
+            }
+            Time.timeScale = Mathf.Lerp(1f, defaultSlowTimeScale, ratioLerpPercent);
+            Time.fixedDeltaTime = Time.timeScale * 0.02f;
+        }
+    }
+
     //Resets the timeScale back to 1:
     void ResetTime()
     {
@@ -117,9 +139,24 @@ public class SlowMoManager : MonoBehaviour
         }
     }
 
+    //follow cam using the ratioLerp for relative zooming in and out of slowMo bullets, should only be used in conjuction with SlowTimeWithVector3Ratio:
+    public void FollowCamUsingRatioLerp(Vector3 position)
+    {
+        if (GameManager.GetGameManager().GetIsSlowMoAvailable())
+        {
+            StoreOriginalCameraSettings();
+            Vector3 followPos = new Vector3(position.x, position.y + 10f, position.z - 10f);
+           
+            camera.transform.position = Vector3.Lerp(m_ogCamPosition, followPos, ratioLerpPercent);
+            camera.orthographicSize = Mathf.Lerp(m_ogCamOrthographicSize, 2f, ratioLerpPercent);
+        }
+    }
+
+
     //Resets the camera to its original settings in the scene:
     public void ResetCam()
     {
+        StoreOriginalCameraSettings();
         followCamLerpPercent = 0f;
         camera.transform.position = m_ogCamPosition;
         camera.orthographicSize = m_ogCamOrthographicSize;

@@ -86,6 +86,12 @@ public class GameManager : MonoBehaviour
         slowMoManager.FollowCam(followCamPosition);
     }
 
+    public void ActivateSlowMoWithRelativePositions( Vector3 bulletPosition, Vector3 tankPosition, float initialDistance )
+    {
+        slowMoManager.SlowTimeWithVector3Ratio(bulletPosition, tankPosition, initialDistance);
+        slowMoManager.FollowCamUsingRatioLerp(bulletPosition);
+    }
+
     public void DeactivateSlowMo()
     {
         slowMoManager.isSlowMo = false;

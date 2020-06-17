@@ -35,6 +35,8 @@ public class RayTraceBulletBehaviour : MonoBehaviour
     private bool isASlowMoBullet;
     private float slowMoTime;
     private float currentSlowMoTimer;
+
+    private Vector3 predictedHitPosition;
     
 
     // Start is called before the first frame update
@@ -53,8 +55,10 @@ public class RayTraceBulletBehaviour : MonoBehaviour
 
         isASlowMoBullet = false;
 
-        slowMoTime = 10f;
+        slowMoTime = 5f;
         currentSlowMoTimer = 0f;
+
+        predictedHitPosition = new Vector3(0, 0, 0);
     }
 
     // Update is called once per frame
@@ -92,7 +96,7 @@ public class RayTraceBulletBehaviour : MonoBehaviour
     {
         if (canAffectTimeScale)
         {
-            if (Physics.Raycast(slowMoDetectorRay, out objectHitSlowMo, moveSpeed))
+            if (Physics.Raycast(slowMoDetectorRay.origin, slowMoDetectorRay.direction, out objectHitSlowMo, moveSpeed))
             {
 
                 if (objectHitSlowMo.collider.gameObject != gameObject)
@@ -101,7 +105,7 @@ public class RayTraceBulletBehaviour : MonoBehaviour
                     {
                         isASlowMoBullet = true;
                         canAffectTimeScale = false;
-                        
+                        predictedHitPosition = objectHitSlowMo.transform.position;
                     }
                     else
                     {
@@ -115,7 +119,8 @@ public class RayTraceBulletBehaviour : MonoBehaviour
 
         if(isASlowMoBullet)
         {
-            GameManager.GetGameManager().ActivateSlowMoWithFollowCam(transform.position);
+            //GameManager.GetGameManager().ActivateSlowMoWithFollowCam(transform.position);
+            GameManager.GetGameManager().ActivateSlowMoWithRelativePositions(transform.position, predictedHitPosition, moveSpeed);
         }
     }
 
@@ -139,6 +144,7 @@ public class RayTraceBulletBehaviour : MonoBehaviour
                 }
                 else if (objectHit.transform.tag == "Tank")
                 {
+                    VFXManager.GetVFXManager().InstantiateBigExplosion(objectHit.transform);
                     AudioManager.GetAudioManager().PlayTankHitSound();
                     Score.scoreValue += 100;
                     Destroy(objectHit.collider.transform.parent.gameObject );
