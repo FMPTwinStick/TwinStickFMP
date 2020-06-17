@@ -11,7 +11,9 @@ public class GameManager : MonoBehaviour
     public static GameManager GetGameManager()
     {
         return instance;
+
     }
+
 
     //Slow Motion variables:
     private SlowMoManager slowMoManager;
@@ -19,6 +21,8 @@ public class GameManager : MonoBehaviour
 
     //General variables
     private int m_enemiesLeft;
+
+    public int EnemiesLeft { get; set; }
 
     // Awake is called befoee anything else:
     void Awake()
