@@ -127,8 +127,14 @@ public class EnemyShootingTracking : MonoBehaviour
             {
                 if (timePassed > timeBetweenShots)
                 {
+                    //Spawn bullet:
                     Instantiate(bulletObject, transform.position + 1.5f * bulletPath.direction, Quaternion.LookRotation(bulletPath.direction, Vector3.up));
+
+                    //Play VFX and SFX:
+                    VFXManager.GetVFXManager().InstantiateTinyExplosion(transform.position + 1.5f * bulletPath.direction, Quaternion.LookRotation(bulletPath.direction, Vector3.up));
                     AudioManager.GetAudioManager().PlayTankFireSound();
+
+                    //Reset Time passed:
                     timePassed = 0f;
                 }
                 isTracking = true;

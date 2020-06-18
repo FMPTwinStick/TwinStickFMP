@@ -128,7 +128,7 @@ public class SniperEnemyBehaviour : MonoBehaviour
                 {
                     isSniping = true;
 
-                    //if the player is still within the aim of the sniper after mxSniperTime the player will be destroyed:
+                    //if the player is still within the aim of the sniper after maxSniperTime the player will be destroyed:
                     if (currentSniperTime > maxSniperTime)
                     {
                         Destroy(objectHit.transform.gameObject);

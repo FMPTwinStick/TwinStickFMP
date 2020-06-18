@@ -28,48 +28,27 @@ public class VFXManager : MonoBehaviour
     //Public Variables/Vfx:
 
     public GameObject bigExplosion;
+    public GameObject tinyExplosion;
 
-    //Private variables:
-
-    //private bool isCullingTimerOn;
-    //private float cullingTimer;
-    //private float bigExplosionDuration;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //isCullingTimerOn = false;
-        //cullingTimer = 0f;
-        //bigExplosionDuration = 2f;
-
-        //bigExplosion.SetActive(true);
-    }
-
-    // Update is called once per frame
-    //void Update()
-    //{
-    //    if (isCullingTimerOn)
-    //    {
-    //        //do culling timer
-    //        if(cullingTimer < bigExplosionDuration)
-    //        {
-    //            cullingTimer += Time.deltaTime;
-    //        }
-
-    //        if (cullingTimer >= bigExplosionDuration)
-    //        {
-    //            bigExplosion.SetActive(false);
-    //            cullingTimer = 0f;
-    //            isCullingTimerOn = false;
-    //        }
-    //    }
-    //}
-
+    //Functions for calling VFX:
     public void InstantiateBigExplosion(Transform transform )
     {
-        Debug.Log("Big Explosion!");
+        
         Instantiate(bigExplosion, transform.position, transform.rotation);
-        //bigExplosion.SetActive(true);
-        //isCullingTimerOn = true;
+       
+    }
+
+    public void InstantiateTinyExplosion( Transform transform )
+    {
+        
+        Instantiate(tinyExplosion, transform.position, transform.rotation);
+        
+    }
+
+    public void InstantiateTinyExplosion( Vector3 position, Quaternion rotation )
+    {
+
+        Instantiate(tinyExplosion, position, rotation);
+
     }
 }

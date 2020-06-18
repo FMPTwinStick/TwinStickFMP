@@ -132,9 +132,18 @@ public class DoubleShotEnemy : MonoBehaviour
                 {
                     //Calculates the 90degree tangent to the direction of the player and fires two bullets accordingly:
                     bulletPathNormal = new Vector3(-bulletPath.direction.z, 0, bulletPath.direction.x);
+                    //instantiate 1st bullet and VFX:
                     Instantiate(bulletObject, transform.position + 1.5f * bulletPath.direction + 0.25f * bulletPathNormal, Quaternion.LookRotation(bulletPath.direction, Vector3.up));
+                    VFXManager.GetVFXManager().InstantiateTinyExplosion(transform.position + 1.5f * bulletPath.direction + 0.25f * bulletPathNormal, Quaternion.LookRotation(bulletPath.direction, Vector3.up));
+
+                    //Instantiate 2nd bullet and VFX:
                     Instantiate(bulletObject, transform.position + 1.5f * bulletPath.direction - 0.25f * bulletPathNormal, Quaternion.LookRotation(bulletPath.direction, Vector3.up));
+                    VFXManager.GetVFXManager().InstantiateTinyExplosion(transform.position + 1.5f * bulletPath.direction + 0.25f * bulletPathNormal, Quaternion.LookRotation(bulletPath.direction, Vector3.up));
+                    
+                    //Add sound effect:
                     AudioManager.GetAudioManager().PlayTankFireSound();
+
+
                     timePassed = 0f;
                 }
                 isTracking = true;

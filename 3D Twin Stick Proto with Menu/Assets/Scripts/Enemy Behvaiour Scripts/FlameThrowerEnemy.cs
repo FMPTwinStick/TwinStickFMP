@@ -15,10 +15,15 @@ public class FlameThrowerEnemy : MonoBehaviour
         public Component cannonPivot;
         public LayerMask layerMask;
 
+    //Declaring FlamethrowerVFX Component:
+    public GameObject flameStream;
+
     //Private Variables:
 
-        //Ray Variables, this is the raycast used to detected players:
-        private Ray bulletPath;
+
+
+    //Ray Variables, this is the raycast used to detected players:
+    private Ray bulletPath;
         private RaycastHit objectHit;
 
         //ViewDirection Variables:
@@ -53,6 +58,8 @@ public class FlameThrowerEnemy : MonoBehaviour
     void Start()
     {
         //Initialising the variables:
+        flameStream.gameObject.SetActive(false);
+
         isRotating = true;
 
         view_Z = 1;
@@ -128,6 +135,7 @@ public class FlameThrowerEnemy : MonoBehaviour
                 if (timePassed > timeBetweenShots)
                 {
                     Instantiate(bulletObject, transform.position + 1.5f * bulletPath.direction, Quaternion.LookRotation(bulletPath.direction, Vector3.up));
+                    flameStream.SetActive(true);
                     timePassed = 0f;
                 }
                 isTracking = true;
@@ -138,6 +146,7 @@ public class FlameThrowerEnemy : MonoBehaviour
             if (objectHit.transform.tag != "Player")
             {
                 isTracking = false;
+                flameStream.SetActive(false);
             }
         }
 

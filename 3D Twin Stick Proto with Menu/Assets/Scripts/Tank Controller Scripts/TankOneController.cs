@@ -14,6 +14,7 @@ public class TankOneController : MonoBehaviour
     public Component tankBody;
     public float maxRotationSpeed = 720.0f;
 
+
     //Private Class Variables:
     private Vector3 moveInput;
     private float moveSpeed;
@@ -74,8 +75,12 @@ public class TankOneController : MonoBehaviour
             if (Input.GetButtonDown("Shoot") && timePassed > timeBetweenShots)
             {
                 timePassed = 0;
-
+                //Instantiate bullet:
                 Instantiate(bulletObject, transform.position + 1.5f * playerDirection, Quaternion.LookRotation(playerDirection, Vector3.up));
+
+                //Instantiate VFX and SFX:
+                VFXManager.GetVFXManager().InstantiateTinyExplosion(transform.position + 1.5f * playerDirection, Quaternion.LookRotation(playerDirection, Vector3.up));
+                Debug.Log("Should spawn VFX");
                 AudioManager.GetAudioManager().PlayTankFireSound();
 
             }
