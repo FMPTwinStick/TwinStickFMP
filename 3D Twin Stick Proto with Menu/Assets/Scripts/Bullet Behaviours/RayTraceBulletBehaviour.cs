@@ -156,9 +156,13 @@ public class RayTraceBulletBehaviour : MonoBehaviour
                 {
                     AudioManager.GetAudioManager().PlayTankHitSound();
                     StopSlowMo();
-                    Destroy(objectHit.collider.transform.parent.gameObject);
                     Destroy(gameObject);
-                    SceneManager.LoadScene("DeathScreen");
+                    Healthbar.Health -= 1;
+                    if (Healthbar.Health <= 0)
+                    {
+                        Destroy(objectHit.collider.transform.parent.gameObject);                        
+                        SceneManager.LoadScene("DeathScreen");
+                    }
                 }
                 else if (objectHit.transform.tag == "Fire")
                 {

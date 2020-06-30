@@ -4,16 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Healthbar : MonoBehaviour
 {
-    public Slider slider;
-
-    public void SetMaxHealth(int health)
+    public static int Health = 3;
+    Text healthText;
+    // Start is called before the first frame update
+    void Start()
     {
-        slider.maxValue = health;
-        slider.value = health;
+        healthText = GetComponent<Text>();
     }
-    
-    public void SetHealth(int health)
+
+    // Update is called once per frame
+    void Update()
     {
-        slider.value = health;
+        healthText.text = "Lives: " + Health ;
     }
 }
