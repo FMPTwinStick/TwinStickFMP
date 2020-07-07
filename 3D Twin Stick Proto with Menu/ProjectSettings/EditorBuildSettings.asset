@@ -17,16 +17,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ClassicModeMap/ClassicLevel3.unity
     guid: be705da3aa46d7e41a96822f5d6af61a
-  - enabled: 1
-    path: Assets/Scenes/ClassicModeMap/ClassicLevel4.unity
-    guid: 4e2823d9612d06e4a944f84dc652c0c3
-  - enabled: 1
-    path: Assets/Scenes/ClassicModeMap/ClassicLevel5.unity
-    guid: 68aa2ec955b23924ebfbaf49759a35ac
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/MerlinsLevelTemplate.unity
     guid: b59c45f84a39d854489816a00bc7c879
   - enabled: 1
     path: Assets/Scenes/DeathScreen.unity
     guid: 7afac3bf29e5d2b449991de1558bf921
+  - enabled: 1
+    path: Assets/Scenes/ClassicModeMap/ClassicLevel5.unity
+    guid: c6613d6f6ef3f114c83ccde6b79dd4fa
+  - enabled: 1
+    path: Assets/Scenes/ClassicModeMap/ClassicLevel6.unity
+    guid: 100429b451050cb41bc84b50b968c5fa
   m_configObjects: {}
