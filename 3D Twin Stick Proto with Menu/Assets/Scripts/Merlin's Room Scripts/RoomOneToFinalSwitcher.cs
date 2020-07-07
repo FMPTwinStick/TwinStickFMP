@@ -7,12 +7,12 @@ public class RoomOneToFinalSwitcher : MonoBehaviour
 
     public GameObject playerOneTank;
     public Camera roomOneCam;
-    public Camera roomThreeCam;
+  
 
     void start()
     {
         //makes sure the correct camera is active when the scene is loaded
-        roomThreeCam.enabled = false;
+
     }
 
     void OnTriggerEnter()
@@ -21,8 +21,9 @@ public class RoomOneToFinalSwitcher : MonoBehaviour
         GameMode.roomOneActive = false;
         GameMode.roomThreeActive = true;
         roomOneCam.enabled = false;
-        roomThreeCam.enabled = true;
         playerOneTank.transform.position -= new Vector3(0, 0, 20);
+        roomOneCam.transform.position -= new Vector3(0, 0, 40);
+        SlowMoManager.GetSloMoManager().SetNewCameraPos(new Vector3(-3, 43, -130));
     }
 
 }
