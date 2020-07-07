@@ -115,7 +115,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 147
+  controlID: 95
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 15
+  controlID: 147
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 16
+  controlID: 148
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -390,10 +390,10 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 32}
+      scrollPos: {x: 0, y: 646}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: ce4dfeff6c50feff8a51feffe053fefffe54feff5c57fefffa76feff14a1feff60b0feff10dffeffc812ffff8a2bffff8a50ffffc88effff2693ffffb094ffff32b6ffff6cfbffff
+      m_ExpandedIDs: e49dffff68a1fffff4a4ffff68a8fffff4abffffacafffff90b3ffff4cb6ffff14bbffff18bffffff8c2ffff3acfffff38d3ffff86d6ffff14daffff5addffff46e1ffff08e5ffff5ae8ffffb4ebffffa6efffff44f4ffffdaf6ffff6cfbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -453,9 +453,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 9.457991, y: -0.02673912, z: 21.76175}
+    m_Target: {x: 7.786286, y: -1.5160751, z: -0.470047}
     speed: 2
-    m_Value: {x: 9.457991, y: -0.02673912, z: 21.76175}
+    m_Value: {x: 7.786286, y: -1.5160751, z: -0.470047}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -501,13 +501,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.44599414, y: -0.07078368, z: 0.03533506, w: 0.89161885}
+    m_Target: {x: -0.00135652, y: -0.80702144, z: 0.5906495, w: -0.0019739175}
     speed: 2
-    m_Value: {x: 0.44729668, y: -0.07072514, z: 0.035438504, w: 0.89088035}
+    m_Value: {x: -0.0022423174, y: -0.80695456, z: 0.59060067, w: -0.0031841984}
   m_Size:
-    m_Target: 50.401703
+    m_Target: 68.05573
     speed: 2
-    m_Value: 48.231297
+    m_Value: 71.26255
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -597,21 +597,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Military base assets/Prefabs/props
+    - Assets/Scenes/Medium Level
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Military base assets/Prefabs/props
+  - Assets/Scenes/Medium Level
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Cameron Johnson\Documents\UNI\TwinStickFMP\3D Twin
     Stick Proto with Menu
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 88370000
-    m_LastClickedID: 14216
-    m_ExpandedIDs: 000000002e37000030370000323700003437000036370000383700009a37000000ca9a3b
+    scrollPos: {x: 0, y: 202}
+    m_SelectedIDs: 00380000
+    m_LastClickedID: 14336
+    m_ExpandedIDs: 000000008c3700008e37000090370000923700009437000096370000fc37000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -639,7 +639,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000002e3700003037000032370000343700003637000038370000
+    m_ExpandedIDs: 000000008c3700008e37000090370000923700009437000096370000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -691,7 +691,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 190}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 268
