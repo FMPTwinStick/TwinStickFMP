@@ -61,8 +61,15 @@
      <Compile Include="Assets\Scripts\Bullet Behaviours\LandMine.cs" />
      <Compile Include="Assets\Scripts\Bullet Behaviours\RayTraceBulletBehaviour.cs" />
      <Compile Include="Assets\Scripts\Bullet Behaviours\RocketBehaviour.cs" />
-     <Compile Include="Assets\Scripts\ClassicModeScripts\AddEnemiesLevel3.cs" />
+     <Compile Include="Assets\Scripts\ClassicModeScripts\LevelEightController.cs" />
+     <Compile Include="Assets\Scripts\ClassicModeScripts\LevelElevenController.cs" />
+     <Compile Include="Assets\Scripts\ClassicModeScripts\LevelFiveController.cs" />
+     <Compile Include="Assets\Scripts\ClassicModeScripts\LevelFourController.cs" />
+     <Compile Include="Assets\Scripts\ClassicModeScripts\LevelNineController.cs" />
      <Compile Include="Assets\Scripts\ClassicModeScripts\LevelOneController.cs" />
+     <Compile Include="Assets\Scripts\ClassicModeScripts\LevelSevenController.cs" />
+     <Compile Include="Assets\Scripts\ClassicModeScripts\LevelSixController.cs" />
+     <Compile Include="Assets\Scripts\ClassicModeScripts\LevelTenController.cs" />
      <Compile Include="Assets\Scripts\ClassicModeScripts\LevelThreeController.cs" />
      <Compile Include="Assets\Scripts\ClassicModeScripts\LevelTwoController.cs" />
      <Compile Include="Assets\Scripts\Enemy Behvaiour Scripts\BurstShotEnemy.cs" />
