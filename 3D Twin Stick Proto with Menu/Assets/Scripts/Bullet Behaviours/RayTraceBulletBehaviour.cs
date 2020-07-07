@@ -160,6 +160,8 @@ public class RayTraceBulletBehaviour : MonoBehaviour
                     Healthbar.Health -= 1;
                     if (Healthbar.Health <= 0)
                     {
+                        if (PlayerPrefs.GetFloat("Highscore") < Score.scoreValue)
+                        PlayerPrefs.SetFloat("Highscore", Score.scoreValue);
                         Destroy(objectHit.collider.transform.parent.gameObject);                        
                         SceneManager.LoadScene("DeathScreen");
                     }
