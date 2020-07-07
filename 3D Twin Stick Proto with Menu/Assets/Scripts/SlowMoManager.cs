@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class SlowMoManager : MonoBehaviour
 {
+
+
+    static SlowMoManager instance;
+
+    public static SlowMoManager GetSloMoManager()
+    {
+        return instance;
+
+    }
     //public variables:
     public bool isSlowMo;
 
@@ -172,4 +181,10 @@ public class SlowMoManager : MonoBehaviour
             m_ogCamOrthographicSize = camera.orthographicSize;
         }
     }
+
+    public void SetNewCameraPos(Vector3 newCamPos)
+    {
+        m_ogCamPosition = newCamPos;
+    }
+
 }

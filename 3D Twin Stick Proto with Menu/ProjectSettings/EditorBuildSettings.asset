@@ -35,4 +35,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ClassicModeMap/ClassicLevel6.unity
     guid: 100429b451050cb41bc84b50b968c5fa
+  - enabled: 1
+    path: Assets/Scenes/ClassicModeMap/ClassicLevel4.unity
+    guid: 592bcb645d833aa4789c388281865811
+  - enabled: 1
+    path: Assets/Scenes/ArenaGamemode.unity
+    guid: c21f45188ab9c304aad276bc700e6804
   m_configObjects: {}

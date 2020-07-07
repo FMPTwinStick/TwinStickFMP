@@ -7,12 +7,12 @@ public class RoomTwotoOnwSwitcher : MonoBehaviour
 
     public GameObject playerOneTank;
     public Camera roomOneCam;
-    public Camera roomTwoCam; 
+ 
 
     void start()
     {
         //makes sure the correct camera is active when the scene is loaded
-        roomTwoCam.enabled = true;
+       
     }
 
     void OnTriggerEnter()
@@ -21,8 +21,9 @@ public class RoomTwotoOnwSwitcher : MonoBehaviour
         GameMode.roomOneActive = true;
         GameMode.roomTwoActive = false;
         roomOneCam.enabled = true;
-        roomTwoCam.enabled = false;
-        playerOneTank.transform.position -= new Vector3(0, 0, 20); 
+        playerOneTank.transform.position -= new Vector3(0, 0, 20);
+        roomOneCam.transform.position -= new Vector3(0, 0, 40);
+        SlowMoManager.GetSloMoManager().SetNewCameraPos(new Vector3(-3, 43, -90));
     }
 
 }
