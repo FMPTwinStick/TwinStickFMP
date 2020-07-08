@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/ArenaGamemode.unity
+- path: Assets/Scenes/ClassicModeMap/ClassicLevel2.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

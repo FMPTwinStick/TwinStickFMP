@@ -41,4 +41,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ArenaGamemode.unity
     guid: c21f45188ab9c304aad276bc700e6804
+  - enabled: 1
+    path: Assets/Scenes/ClassicModeMap/ClassicLevel7.unity
+    guid: 5855a7080082d684a83fcf49a33fb8fb
+  - enabled: 1
+    path: Assets/Scenes/ClassicModeMap/ClassicLevel8.unity
+    guid: f66d20212b98a5e4ba4df35db6a2a738
+  - enabled: 1
+    path: Assets/Scenes/ClassicModeMap/ClassicLevel9.unity
+    guid: f0ef049f1b4ce6a40953a78af5438296
+  - enabled: 1
+    path: Assets/Scenes/ClassicModeMap/ClassicLevel10.unity
+    guid: fd33bffb6d44014419e07512f3111873
   m_configObjects: {}

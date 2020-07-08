@@ -24,7 +24,7 @@ public class MainMenu : MonoBehaviour
     //This loads the Arena scene
     public void loadArena()
     {
-        SceneManager.LoadScene("MerlinsLevelTemplate");
+        SceneManager.LoadScene("ArenaGameMode");
     }
 
     //This loads the Classic scene
