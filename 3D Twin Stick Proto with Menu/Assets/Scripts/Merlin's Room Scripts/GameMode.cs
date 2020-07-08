@@ -25,7 +25,7 @@ public class GameMode: MonoBehaviour
     void Start()
     {
         GameManager.GetGameManager().SetEnemiesLeft(2);
-        GameManager.GetGameManager().ArenaModeActive(true);
+        
         roomTwoActive = false;
         roomThreeActive = false;
         roomFourActive = false;

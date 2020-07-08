@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     //General variables
     private int m_enemiesLeft;
-    private bool m_isArenaMode;
+ 
 
     public int EnemiesLeft { get; set; }
 
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
         }
 
         //Adding the SlowMoManager as a component:
-        if (slowMoManager == null && m_isArenaMode == false)
+        if (slowMoManager == null)
         {
             slowMoManager = gameObject.AddComponent<SlowMoManager>();
         }
@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
     {
         m_isSlowMoAvailable = false;
         m_enemiesLeft = 0;
-        m_isArenaMode = false; 
+      
 
         DeactivateSlowMo();
     }
@@ -62,10 +62,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_isArenaMode == true)
-        {
-            m_isSlowMoAvailable = false; 
-        }
+         
+  
     }
 
     //Getter and setters for isSlowMoAvailable:
@@ -76,8 +74,8 @@ public class GameManager : MonoBehaviour
 
     public void MakeSlowMoAvailable()
     {
-        if (m_isArenaMode == false)
-        { m_isSlowMoAvailable = true; }
+  
+        m_isSlowMoAvailable = true; 
     }
 
     public void MakeSlowMoUnavailable()
@@ -88,20 +86,20 @@ public class GameManager : MonoBehaviour
     //Slow Motion activation and deactivation functions:
     public void ActivateSlowMoWithFollowCam(Vector3 followCamPosition)
     {
-        if (m_isArenaMode == false)
-        {
+       
+        
             slowMoManager.isSlowMo = true;
             slowMoManager.FollowCam(followCamPosition);
-        }
+        
     }
 
     public void ActivateSlowMoWithRelativePositions( Vector3 bulletPosition, Vector3 tankPosition, float initialDistance )
     {
-        if (m_isArenaMode == false)
-        {
+      
+        
             slowMoManager.SlowTimeWithVector3Ratio(bulletPosition, tankPosition, initialDistance);
             slowMoManager.FollowCamUsingRatioLerp(bulletPosition);
-        }
+        
     }
 
     public void DeactivateSlowMo()
@@ -126,8 +124,5 @@ public class GameManager : MonoBehaviour
         m_enemiesLeft -= 1;
     }
 
-    public void ArenaModeActive(bool ArenaMode)
-    {
-        m_isArenaMode = ArenaMode;
-    }
+
 }
