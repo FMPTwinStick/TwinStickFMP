@@ -45,6 +45,7 @@ public class LandMine : MonoBehaviour
             sphereCollider.enabled = true;
             Destroy(other.gameObject);
             Invoke("DestroyLandmine", 0.1f);
+            
         }
     }
 
@@ -57,7 +58,12 @@ public class LandMine : MonoBehaviour
             sphereCollider.enabled = true;
             explosion.gameObject.SetActive(true);
             Destroy(other.gameObject);
+            if (other.gameObject.CompareTag("Tank"))
+            {
+                GameManager.GetGameManager().KillEnemy();
+            }
             Invoke("DestroyLandmine", 0.1f);
+            
         }
    
        
