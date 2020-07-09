@@ -27,12 +27,6 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("ArenaGameMode");
     }
 
-    //This loads the Classic scene
-    public void LoadClassic()
-    {
-        SceneManager.LoadScene("ClassicLevel1");
-    }
-
     //This loads the PvP scene
     public void LoadPvP()
     {
