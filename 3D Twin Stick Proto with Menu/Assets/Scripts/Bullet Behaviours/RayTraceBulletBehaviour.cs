@@ -164,6 +164,7 @@ public class RayTraceBulletBehaviour : MonoBehaviour
                         PlayerPrefs.SetFloat("Highscore", Score.scoreValue);
                         Destroy(objectHit.collider.transform.parent.gameObject);                        
                         SceneManager.LoadScene("DeathScreen");
+                        Healthbar.Health = 3;
                     }
                 }
                 else if (objectHit.transform.tag == "Fire")
