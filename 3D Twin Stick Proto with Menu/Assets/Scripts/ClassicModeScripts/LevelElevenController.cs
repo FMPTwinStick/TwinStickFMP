@@ -24,7 +24,7 @@ public class LevelElevenController : MonoBehaviour
         {
             GameManager.GetGameManager().MakeSlowMoUnavailable();
             GameManager.GetGameManager().DeactivateSlowMo();
-            SceneManager.LoadScene("ClassicLevel1");
+            SceneManager.LoadScene("ClassicLevel12");
         }
 
     }
