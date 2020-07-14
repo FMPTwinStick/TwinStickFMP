@@ -23,7 +23,7 @@ public class RoomTwotoOnwSwitcher : MonoBehaviour
         roomOneCam.enabled = true;
         playerOneTank.transform.position -= new Vector3(0, 0, 20);
         roomOneCam.transform.position -= new Vector3(0, 0, 40);
-        SlowMoManager.GetSloMoManager().SetNewCameraPos(new Vector3(-3, 43, -90));
+        //SlowMoManager.GetSloMoManager().SetNewCameraPos(new Vector3(-3, 43, -90));
     }
 
 }

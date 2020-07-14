@@ -6,13 +6,13 @@ public class SlowMoManager : MonoBehaviour
 {
 
 
-    static SlowMoManager instance;
+    //static SlowMoManager instance;
 
-    public static SlowMoManager GetSloMoManager()
-    {
-        return instance;
+    //public static SlowMoManager GetSloMoManager()
+    //{
+    //    return instance;
 
-    }
+    //}
     //public variables:
     public bool isSlowMo;
 

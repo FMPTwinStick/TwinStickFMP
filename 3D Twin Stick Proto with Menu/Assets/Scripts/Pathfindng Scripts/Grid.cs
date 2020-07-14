@@ -9,6 +9,7 @@ public class Grid : MonoBehaviour
     public LayerMask untraversable;
     public Vector2 m_worldSize;
     public float m_nodeRadius;
+    public bool drawGridInGizmos;
 
     //Private Variables:
     Node[,] m_grid;
@@ -31,6 +32,7 @@ public class Grid : MonoBehaviour
         m_length    = Mathf.RoundToInt(m_worldSize.y / m_nodeDiameter);
         
         CreateGrid();
+        drawGridInGizmos = false;
     }
 
     // Update is called once per frame
@@ -117,32 +119,36 @@ public class Grid : MonoBehaviour
     }
 
     //Gizmos:
+    
     void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(transform.position, new Vector3(m_worldSize.x, 1, m_worldSize.y));
-        
-
-        if (m_grid[0,0] != null)
+        if (drawGridInGizmos)
         {
-            foreach ( Node node in m_grid)
-            {
-                Gizmos.color = Color.white;
-                
-                if(!node.GetTraversability())
-                {
-                    Gizmos.color = Color.red;
-                }
+            Gizmos.DrawWireCube(transform.position, new Vector3(m_worldSize.x, 1, m_worldSize.y));
 
-                if(m_path != null)
+
+            if (m_grid[0, 0] != null)
+            {
+                foreach (Node node in m_grid)
                 {
-                    if (m_path.Contains(node))
+                    Gizmos.color = Color.white;
+
+                    if (!node.GetTraversability())
                     {
-                        Gizmos.color = Color.cyan;
+                        Gizmos.color = Color.red;
                     }
-                    
+
+                    if (m_path != null)
+                    {
+                        if (m_path.Contains(node))
+                        {
+                            Gizmos.color = Color.cyan;
+                        }
+
+                    }
+
+                    Gizmos.DrawCube(node.GetPosition(), (m_nodeDiameter - 0.05f) * Vector3.one);
                 }
-                
-                Gizmos.DrawCube(node.GetPosition(), (m_nodeDiameter - 0.05f) * Vector3.one );
             }
         }
     }

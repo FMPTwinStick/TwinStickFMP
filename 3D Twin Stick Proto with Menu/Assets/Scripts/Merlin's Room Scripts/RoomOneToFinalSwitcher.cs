@@ -23,7 +23,7 @@ public class RoomOneToFinalSwitcher : MonoBehaviour
         roomOneCam.enabled = false;
         playerOneTank.transform.position -= new Vector3(0, 0, 20);
         roomOneCam.transform.position -= new Vector3(0, 0, 40);
-        SlowMoManager.GetSloMoManager().SetNewCameraPos(new Vector3(-3, 43, -130));
+       // SlowMoManager.GetSloMoManager().SetNewCameraPos(new Vector3(-3, 43, -130));
     }
 
 }
