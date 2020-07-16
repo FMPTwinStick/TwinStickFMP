@@ -10,6 +10,7 @@ TagManager:
   - Bullet
   - Tank
   - Fire
+  - Grid
   layers:
   - Default
   - TransparentFX

@@ -5,9 +5,9 @@ using UnityEngine;
 public class Pathfinder : MonoBehaviour
 {
     //Public variables:
-    public Transform player;
+    
     public Transform enemyTank;
-    public GameObject pathfindingGrid;
+    //public GameObject pathfindingGrid;
 
     //Private Variables:
     private Grid m_grid;
@@ -16,10 +16,13 @@ public class Pathfinder : MonoBehaviour
 
     List<Vector3> m_path = new List<Vector3>();
 
+    private Transform player;
+
     // Start is called before the first frame update
     void Awake()
     {
-        m_grid = pathfindingGrid.GetComponent<Grid>();
+        m_grid = GameObject.FindWithTag("Grid").GetComponent<Grid>();
+        player = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame
@@ -97,6 +100,7 @@ public class Pathfinder : MonoBehaviour
     {
         Node current = target;
         List<Node> path = new List<Node>();
+        m_path = new List<Vector3>();
         while(current != start)
         {
             path.Add(current);

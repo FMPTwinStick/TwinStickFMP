@@ -30,9 +30,8 @@ public class Grid : MonoBehaviour
 
         m_width     = Mathf.RoundToInt(m_worldSize.x / m_nodeDiameter);
         m_length    = Mathf.RoundToInt(m_worldSize.y / m_nodeDiameter);
-        
+
         CreateGrid();
-        drawGridInGizmos = false;
     }
 
     // Update is called once per frame
