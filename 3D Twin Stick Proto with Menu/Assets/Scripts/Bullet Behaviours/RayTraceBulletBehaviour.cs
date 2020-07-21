@@ -11,8 +11,10 @@ public class RayTraceBulletBehaviour : MonoBehaviour
    
     public static bool canAffectTimeScale;
 
-    
+
     //Private Variables:
+
+    private int currentSceneIndex;
 
     ///Move speed variable:
     private float   moveSpeed;
@@ -162,7 +164,9 @@ public class RayTraceBulletBehaviour : MonoBehaviour
                     {
                         if (PlayerPrefs.GetFloat("Highscore") < Score.scoreValue)
                         PlayerPrefs.SetFloat("Highscore", Score.scoreValue);
-                        Destroy(objectHit.collider.transform.parent.gameObject);                        
+                        Destroy(objectHit.collider.transform.parent.gameObject);
+                        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+                        PlayerPrefs.SetInt("SavedScene", currentSceneIndex);
                         SceneManager.LoadScene("DeathScreen");
                         Healthbar.Health = 3;
                     }

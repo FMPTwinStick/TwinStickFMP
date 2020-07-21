@@ -9,6 +9,7 @@ public class DeathScreen : MonoBehaviour
 {
     Text scoreText;
 
+    private int loadPreviousScene;
     void Start()
     {
         scoreText = GetComponent<Text>();
@@ -31,7 +32,9 @@ public class DeathScreen : MonoBehaviour
     //This allows you to restart the previous scene
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        loadPreviousScene = PlayerPrefs.GetInt("SavedScene");
+        if (loadPreviousScene != 0)
+            SceneManager.LoadScene(loadPreviousScene);
     }
 
     void update()
