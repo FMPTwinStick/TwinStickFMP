@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Node class, used to create a grid for pathfinding:
 public class Node
 {
     //Private Variables:
@@ -30,18 +31,6 @@ public class Node
         m_worldPosition = worldPosition;
         m_gridPosX      = gridPosX;
         m_gridPosY      = gridPosY;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     //Getter and Setter functions:

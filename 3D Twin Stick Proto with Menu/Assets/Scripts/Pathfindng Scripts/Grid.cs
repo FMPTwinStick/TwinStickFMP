@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Grid class, used for pathfinding, creates a grid of nodes to detect traversable and untraversable surfaces:
 public class Grid : MonoBehaviour
 {
     //Public Variables:
