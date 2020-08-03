@@ -21,12 +21,6 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    //This loads the Arena scene
-    public void loadArena()
-    {
-        SceneManager.LoadScene("ArenaGameMode");
-    }
-
     //This loads the PvP scene
     public void LoadPvP()
     {

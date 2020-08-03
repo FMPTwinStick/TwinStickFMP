@@ -7,12 +7,14 @@ using UnityEngine.UI;
 //This script has been done by Aziz Ali
 public class DeathScreen : MonoBehaviour
 {
-    Text scoreText;
+    public Text scoreText;
+    public Text highscoreText;
 
     private int loadPreviousScene;
     void Start()
     {
-        scoreText = GetComponent<Text>();
+        highscoreText.text = "Current Highscore : " + PlayerPrefs.GetFloat("Highscore");
+        scoreText.text = "Your Score : " + PlayerPrefs.GetFloat("Score", Score.scoreValue);
     }    
     
     //This allows you to quit the application
@@ -39,6 +41,6 @@ public class DeathScreen : MonoBehaviour
 
     void update()
     {
-        scoreText.text = "Score :" + Score.scoreValue;
+
     }
 }

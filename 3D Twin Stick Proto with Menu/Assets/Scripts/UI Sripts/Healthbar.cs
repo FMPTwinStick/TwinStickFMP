@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+//This script has been done by Aziz Ali
 public class Healthbar : MonoBehaviour
 {
     public static int Health = 3;

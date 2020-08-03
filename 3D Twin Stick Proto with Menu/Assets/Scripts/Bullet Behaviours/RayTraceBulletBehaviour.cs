@@ -164,6 +164,7 @@ public class RayTraceBulletBehaviour : MonoBehaviour
                     {
                         if (PlayerPrefs.GetFloat("Highscore") < Score.scoreValue)
                         PlayerPrefs.SetFloat("Highscore", Score.scoreValue);
+                        PlayerPrefs.GetFloat("Score");
                         Destroy(objectHit.collider.transform.parent.gameObject);
                         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
                         PlayerPrefs.SetInt("SavedScene", currentSceneIndex);
