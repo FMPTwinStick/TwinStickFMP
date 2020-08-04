@@ -15,7 +15,7 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         //This allows you to press spacebar to pause and resume the game
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Pause"))
         {
             if(GamePaused)
             {
