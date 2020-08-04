@@ -8,12 +8,10 @@ using UnityEngine.UI;
 public class DeathScreen : MonoBehaviour
 {
     public Text scoreText;
-    public Text highscoreText;
 
     private int loadPreviousScene;
     void Start()
     {
-        highscoreText.text = "Current Highscore : " + PlayerPrefs.GetFloat("Highscore");
         scoreText.text = "Your Score : " + PlayerPrefs.GetFloat("Score", Score.scoreValue);
     }    
     
