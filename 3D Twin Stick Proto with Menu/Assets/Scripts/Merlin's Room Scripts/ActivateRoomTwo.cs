@@ -31,8 +31,8 @@ public class ActivateRoomTwo : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         //sets up the room when you exit the collider by the door by activating the enemies and updating the enemies left and makes the key spawnable
-        GameMode.enemiesLeft += 2;
-      //  doorTwo.SetActive(true);
+        GameManager.GetGameManager().SetEnemiesLeft(2);
+        //  doorTwo.SetActive(true);
         enemyOne.SetActive(true);
         enemyTwo.SetActive(true);
         GameMode.keySpawnable = true; 

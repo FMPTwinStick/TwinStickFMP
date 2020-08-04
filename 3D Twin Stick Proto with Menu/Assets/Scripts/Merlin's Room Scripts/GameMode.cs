@@ -24,7 +24,8 @@ public class GameMode: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemiesLeft = 2;
+        GameManager.GetGameManager().SetEnemiesLeft(2);
+        
         roomTwoActive = false;
         roomThreeActive = false;
         roomFourActive = false;
@@ -40,17 +41,17 @@ public class GameMode: MonoBehaviour
     {
         //code for spawning the key in the last room and also making sure that the correct doors are spawned/despawned
 
-        if (keySpawnable == true && enemiesLeft <=0)
+        if (keySpawnable == true && GameManager.GetGameManager().GetEnemiesLeft() <= 0)
         {
             key.gameObject.SetActive(true);
         }
 
-        if (enemiesLeft <= 0)
+        if (GameManager.GetGameManager().GetEnemiesLeft() <= 0)
         {
             doorOne.gameObject.SetActive(false);
             //doorTwo.gameObject.SetActive(false);
         }
-        else if (enemiesLeft > 0)
+        else if (GameManager.GetGameManager().GetEnemiesLeft() <= 0)
         {
             doorOne.gameObject.SetActive(true);
             //doorTwo.gameObject.SetActive(true);

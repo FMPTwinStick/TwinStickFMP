@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     //General variables
     private int m_enemiesLeft;
+ 
 
     public int EnemiesLeft { get; set; }
 
@@ -53,6 +54,7 @@ public class GameManager : MonoBehaviour
     {
         m_isSlowMoAvailable = false;
         m_enemiesLeft = 0;
+      
 
         DeactivateSlowMo();
     }
@@ -60,7 +62,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+         
+  
     }
 
     //Getter and setters for isSlowMoAvailable:
@@ -71,7 +74,8 @@ public class GameManager : MonoBehaviour
 
     public void MakeSlowMoAvailable()
     {
-        m_isSlowMoAvailable = true;
+  
+        m_isSlowMoAvailable = true; 
     }
 
     public void MakeSlowMoUnavailable()
@@ -82,14 +86,20 @@ public class GameManager : MonoBehaviour
     //Slow Motion activation and deactivation functions:
     public void ActivateSlowMoWithFollowCam(Vector3 followCamPosition)
     {
-        slowMoManager.isSlowMo = true;
-        slowMoManager.FollowCam(followCamPosition);
+       
+        
+            slowMoManager.isSlowMo = true;
+            slowMoManager.FollowCam(followCamPosition);
+        
     }
 
     public void ActivateSlowMoWithRelativePositions( Vector3 bulletPosition, Vector3 tankPosition, float initialDistance )
     {
-        slowMoManager.SlowTimeWithVector3Ratio(bulletPosition, tankPosition, initialDistance);
-        slowMoManager.FollowCamUsingRatioLerp(bulletPosition);
+      
+        
+            slowMoManager.SlowTimeWithVector3Ratio(bulletPosition, tankPosition, initialDistance);
+            slowMoManager.FollowCamUsingRatioLerp(bulletPosition);
+        
     }
 
     public void DeactivateSlowMo()
@@ -113,4 +123,6 @@ public class GameManager : MonoBehaviour
     {
         m_enemiesLeft -= 1;
     }
+
+
 }

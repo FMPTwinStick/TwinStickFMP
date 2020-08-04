@@ -24,7 +24,7 @@ public class LevelThreeController : MonoBehaviour
         {
             GameManager.GetGameManager().MakeSlowMoUnavailable();
             GameManager.GetGameManager().DeactivateSlowMo();
-            SceneManager.LoadScene("ClassicLevel1");
+            SceneManager.LoadScene("ClassicLevel4");
         }
 
     }

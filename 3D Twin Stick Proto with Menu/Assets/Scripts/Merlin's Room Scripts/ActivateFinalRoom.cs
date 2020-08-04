@@ -29,7 +29,7 @@ public class ActivateFinalRoom : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         //sets up the room when you exit the collider by the door by activating the enemies and updating the enemies left 
-        GameMode.enemiesLeft += 3;
+        GameManager.GetGameManager().SetEnemiesLeft(3);
         finalDoor.gameObject.SetActive(true);
         enemyOne.SetActive(true);
         enemyTwo.SetActive(true);
