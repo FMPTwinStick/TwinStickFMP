@@ -11,12 +11,13 @@ public class FlameThrowerEnemy : MonoBehaviour
 
         //Allows you to drag in the desired bullet for the tank to fire, the point on the tank object at which the cannon pivots and a layerMask allowing
         //the tank to effectively see through bullets to detect a player:
-        public GameObject bulletObject;
+        //public GameObject bulletObject;
         public Component cannonPivot;
         public LayerMask layerMask;
 
     //Declaring FlamethrowerVFX Component:
     public GameObject flameStream;
+    public GameObject flameStreamCollider;
 
     //Private Variables:
 
@@ -59,6 +60,7 @@ public class FlameThrowerEnemy : MonoBehaviour
     {
         //Initialising the variables:
         flameStream.gameObject.SetActive(false);
+        flameStreamCollider.gameObject.SetActive(false);
 
         isRotating = true;
 
@@ -134,8 +136,9 @@ public class FlameThrowerEnemy : MonoBehaviour
             {
                 if (timePassed > timeBetweenShots)
                 {
-                    Instantiate(bulletObject, transform.position + 1.5f * bulletPath.direction, Quaternion.LookRotation(bulletPath.direction, Vector3.up));
+                    //Instantiate(bulletObject, transform.position + 1.5f * bulletPath.direction, Quaternion.LookRotation(bulletPath.direction, Vector3.up));
                     flameStream.SetActive(true);
+                    flameStreamCollider.SetActive(true);
                     timePassed = 0f;
                 }
                 isTracking = true;
@@ -147,6 +150,7 @@ public class FlameThrowerEnemy : MonoBehaviour
             {
                 isTracking = false;
                 flameStream.SetActive(false);
+                flameStreamCollider.SetActive(false);
             }
         }
 

@@ -70,7 +70,7 @@ public class EnemyMovementCombination : MonoBehaviour
         {
             isPathfinding = true;
             FollowPath();
-            Debug.Log(m_path.Count);
+            
         }
         else
         {

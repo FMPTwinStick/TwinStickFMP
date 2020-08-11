@@ -57,6 +57,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\AudioManager.cs" />
      <Compile Include="Assets\Scripts\Bullet Behaviours\BulletBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Bullet Behaviours\FlameParticleBehaviour.cs" />
      <Compile Include="Assets\Scripts\Bullet Behaviours\FlameThrowerFireBehaviour.cs" />
      <Compile Include="Assets\Scripts\Bullet Behaviours\HomingMissilieBehaviour.cs" />
      <Compile Include="Assets\Scripts\Bullet Behaviours\LandMine.cs" />
