@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//This script has been done by Aziz Ali
 public class Score : MonoBehaviour
 {
     public static int scoreValue = 0;
     Text scoreText;
+
     // Start is called before the first frame update
     void Start()
     {

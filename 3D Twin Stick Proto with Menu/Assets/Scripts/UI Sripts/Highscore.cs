@@ -3,20 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//This script has been done by Aziz Ali
-public class Healthbar : MonoBehaviour
+public class Highscore : MonoBehaviour
 {
-    public static int Health = 3;
-    Text healthText;
+    public Text highscoreText;
+
     // Start is called before the first frame update
     void Start()
     {
-        healthText = GetComponent<Text>();
+        highscoreText.text = "Highscore : " + PlayerPrefs.GetFloat("Highscore");
     }
 
     // Update is called once per frame
     void Update()
     {
-        healthText.text = "Lives: " + Health ;
+        
     }
 }

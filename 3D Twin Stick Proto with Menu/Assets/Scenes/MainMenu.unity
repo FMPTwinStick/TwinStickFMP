@@ -5798,6 +5798,7 @@ GameObject:
   - component: {fileID: 593975678}
   - component: {fileID: 593975680}
   - component: {fileID: 593975679}
+  - component: {fileID: 593975681}
   m_Layer: 5
   m_Name: HighScore
   m_TagString: Untagged
@@ -5855,7 +5856,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'HighScore: ???'
+  m_Text: 'HighScore:'
 --- !u!222 &593975680
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5864,6 +5865,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 593975677}
   m_CullTransparentMesh: 0
+--- !u!114 &593975681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593975677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85a500b918831ca4684227be9596d3b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highscoreText: {fileID: 593975679}
 --- !u!1 &610117061
 GameObject:
   m_ObjectHideFlags: 0
@@ -15876,7 +15890,6 @@ GameObject:
   - component: {fileID: 1956067051}
   - component: {fileID: 1956067050}
   - component: {fileID: 1956067049}
-  - component: {fileID: 1956067052}
   m_Layer: 5
   m_Name: P v P Button
   m_TagString: Untagged
@@ -15994,21 +16007,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1956067047}
   m_CullTransparentMesh: 0
---- !u!114 &1956067052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1956067047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40dc11d60b2b2f84da1369028b189b2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CanvasOff: {fileID: 0}
-  CanvasOn: {fileID: 2121878965}
-  FirstObjectSelected: {fileID: 0}
 --- !u!1 &1984261709
 GameObject:
   m_ObjectHideFlags: 0
