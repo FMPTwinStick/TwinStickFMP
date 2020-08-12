@@ -1093,9 +1093,9 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: 6b3acec50a2f7324b8ccf1f7dca6c140, type: 3}
   - {fileID: 2100000, guid: e7c2e058cf66d8c49a3d3b0e1959dcf2, type: 2}
-  - {fileID: 2100004, guid: 6b3acec50a2f7324b8ccf1f7dca6c140, type: 3}
+  - {fileID: 2100000, guid: 341ee478d585e5c47844865f1d6fcaa5, type: 2}
   - {fileID: 2100006, guid: 6b3acec50a2f7324b8ccf1f7dca6c140, type: 3}
-  - {fileID: 2100000, guid: e7c2e058cf66d8c49a3d3b0e1959dcf2, type: 2}
+  - {fileID: 2100000, guid: 341ee478d585e5c47844865f1d6fcaa5, type: 2}
   - {fileID: 2100010, guid: 6b3acec50a2f7324b8ccf1f7dca6c140, type: 3}
   - {fileID: 2100012, guid: 6b3acec50a2f7324b8ccf1f7dca6c140, type: 3}
   - {fileID: 2100014, guid: 6b3acec50a2f7324b8ccf1f7dca6c140, type: 3}
@@ -1336,7 +1336,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e7c2e058cf66d8c49a3d3b0e1959dcf2, type: 2}
+  - {fileID: 2100000, guid: 341ee478d585e5c47844865f1d6fcaa5, type: 2}
   - {fileID: 2100000, guid: e7c2e058cf66d8c49a3d3b0e1959dcf2, type: 2}
   - {fileID: 2100006, guid: 6b3acec50a2f7324b8ccf1f7dca6c140, type: 3}
   - {fileID: 2100004, guid: 6b3acec50a2f7324b8ccf1f7dca6c140, type: 3}
@@ -3403,7 +3403,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: e7c2e058cf66d8c49a3d3b0e1959dcf2, type: 2}
-  - {fileID: 2100006, guid: 6b3acec50a2f7324b8ccf1f7dca6c140, type: 3}
+  - {fileID: 2100000, guid: 341ee478d585e5c47844865f1d6fcaa5, type: 2}
   - {fileID: 2100004, guid: 6b3acec50a2f7324b8ccf1f7dca6c140, type: 3}
   - {fileID: 2100016, guid: 6b3acec50a2f7324b8ccf1f7dca6c140, type: 3}
   m_StaticBatchInfo:
@@ -9744,7 +9744,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5492172237681988740}
   m_LocalRotation: {x: -4.9303807e-32, y: 2.4651903e-32, z: 1, w: 6.123234e-17}
-  m_LocalPosition: {x: -2.3029447, y: 0.5574917, z: 1.9895197e-15}
+  m_LocalPosition: {x: -2.3, y: 0.56, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8012847128798913865}
@@ -12099,7 +12099,7 @@ GameObject:
   - component: {fileID: 1630196539547187552}
   - component: {fileID: 5237433644446576773}
   m_Layer: 0
-  m_Name: EnemyTank2(Combination)
+  m_Name: EnemyTank2(Homing)PF
   m_TagString: Tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12167,9 +12167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a97c73ddab4ab746856c660e12c3c0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   enemyTank: {fileID: 5310294537102600693}
-  pathfindingGrid: {fileID: 0}
 --- !u!114 &5237433644446576773
 MonoBehaviour:
   m_ObjectHideFlags: 0
