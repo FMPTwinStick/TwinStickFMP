@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//This Script has been done by Aziz Ali
 public class Highscore : MonoBehaviour
 {
     public Text highscoreText;

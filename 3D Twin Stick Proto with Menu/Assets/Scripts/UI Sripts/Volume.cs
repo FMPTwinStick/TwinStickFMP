@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
+//This Script has been done by Aziz Ali
 public class Volume : MonoBehaviour
 {
     public AudioMixer mixer;

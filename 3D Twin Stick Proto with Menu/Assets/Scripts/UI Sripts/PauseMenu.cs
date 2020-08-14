@@ -14,7 +14,7 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //This allows you to press spacebar to pause and resume the game
+        //This allows you to press the options button on the PS4 controller to pause and resume the game
         if (Input.GetButtonDown("Pause"))
         {
             if(GamePaused)

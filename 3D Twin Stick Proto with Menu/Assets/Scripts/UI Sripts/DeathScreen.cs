@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-//This script has been done by Aziz Ali
+//This Script has been done by Aziz Ali
 public class DeathScreen : MonoBehaviour
 {
     public Text scoreText;
