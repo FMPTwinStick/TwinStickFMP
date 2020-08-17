@@ -17,6 +17,10 @@ public class SniperEnemyBehaviour : MonoBehaviour
 
     //Private Variables:
 
+    ///LineRenderer Variables:
+    private LineRenderer lineRenderer;
+
+
         ///Ray Variables, this is the raycast used to detected players and the reflected path of the sniper shot:
         private Ray bulletPath;
         private RaycastHit objectHit;
@@ -54,6 +58,8 @@ public class SniperEnemyBehaviour : MonoBehaviour
     void Start()
     {
         //Initialising the variables:
+        lineRenderer = gameObject.GetComponent<LineRenderer>();
+
         isRotating = true;
 
         view_Z = 1;
@@ -102,9 +108,12 @@ public class SniperEnemyBehaviour : MonoBehaviour
 
         InvertRotation();
 
+        
+
 
         //Shows the direction the enemy tank is looking for debugging:
         Debug.DrawLine(transform.position, transform.position + viewDirection * 30f, Color.red);
+        lineRenderer.SetPosition(0, transform.position);
     }
 
 
@@ -113,6 +122,7 @@ public class SniperEnemyBehaviour : MonoBehaviour
     {
         //updates the origin and direction of the raycast:
         bulletPath.origin = transform.position;
+        
         bulletPath.direction = viewDirection;
         
         //Changes the way the cannon is facing to match:
@@ -121,16 +131,23 @@ public class SniperEnemyBehaviour : MonoBehaviour
         //Reading what the bulletPath raycast hits:
         if (Physics.Raycast(bulletPath, out objectHit, 30f, layerMask))
         {
+            //adjusting the line renderer
+            lineRenderer.SetPosition(1, objectHit.point);
+
             //If the object hit is a player, the tank will attempt to snipe:
             if (objectHit.transform.tag == "Player")
             {
+                AudioManager.GetAudioManager().PlaySniperDetectionSound();
                 if (objectHit.transform.tag == "Player")
                 {
                     isSniping = true;
 
+
                     //if the player is still within the aim of the sniper after maxSniperTime the player will be destroyed:
                     if (currentSniperTime > maxSniperTime)
                     {
+                        lineRenderer.startWidth = 4f; lineRenderer.endWidth = 4f;
+                        AudioManager.GetAudioManager().PlayTankHitSound();
                         Destroy(objectHit.transform.gameObject);
                         currentSniperTime = 0;
                         isSniping = false;
@@ -156,11 +173,16 @@ public class SniperEnemyBehaviour : MonoBehaviour
 
                 if (Physics.Raycast(reflectionPath, out objectHitReflected, 30f, layerMask))
                 {
+                    //adjusting the line renderer
+                    lineRenderer.SetPosition(2, objectHitReflected.point);
+
                     if (objectHitReflected.transform.tag == "Player")
                     {
+                        AudioManager.GetAudioManager().PlaySniperDetectionSound();
                         isSniping = true;
                         if (currentSniperTime > maxSniperTime)
                         {
+                            AudioManager.GetAudioManager().PlayTankHitSound();
                             Destroy(objectHitReflected.transform.gameObject);
                             currentSniperTime = 0;
                             isSniping = false;
@@ -182,6 +204,8 @@ public class SniperEnemyBehaviour : MonoBehaviour
         }
 
     }
+
+    
 
 
     //View Rotation function, controls the direction of the ray cast i.e. the way the enemy is looking:
