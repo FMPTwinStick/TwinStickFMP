@@ -48,6 +48,8 @@ MonoBehaviour:
   tankFireSound: {fileID: 8300000, guid: 307523b9adc5b0b459bd61bd104aae24, type: 3}
   tankMoveSound: {fileID: 8300000, guid: 772f266beadaf374d956731607aa577b, type: 3}
   placeMineSound: {fileID: 8300000, guid: 0918f346d58ac6d46a49da47512f5ce1, type: 3}
+  sniperDetectionSound: {fileID: 8300000, guid: e22c112bf74f448469aaf51b17eaa1a6,
+    type: 3}
   music: {fileID: 8300000, guid: a2b28c232ee9cc74abd1a57c3b6323cf, type: 3}
 --- !u!82 &54768143
 AudioSource:

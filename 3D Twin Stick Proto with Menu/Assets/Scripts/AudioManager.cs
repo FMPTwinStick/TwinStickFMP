@@ -17,6 +17,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip tankFireSound;
     public AudioClip tankMoveSound;
     public AudioClip placeMineSound;
+    public AudioClip sniperDetectionSound;
 
     public AudioClip music;
 
@@ -86,5 +87,10 @@ public class AudioManager : MonoBehaviour
     public void PlayPlaceMineSound()
     {
         audioSource.PlayOneShot(placeMineSound);
+    }
+
+    public void PlaySniperDetectionSound()
+    {
+        audioSource.PlayOneShot(sniperDetectionSound);
     }
 }
