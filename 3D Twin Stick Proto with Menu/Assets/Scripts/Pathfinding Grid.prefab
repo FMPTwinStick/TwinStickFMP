@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8319200963848503936}
   m_Layer: 0
   m_Name: Pathfinding Grid
-  m_TagString: Untagged
+  m_TagString: Grid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,3 +48,4 @@ MonoBehaviour:
     m_Bits: 2048
   m_worldSize: {x: 24.6, y: 23.7}
   m_nodeRadius: 0.5
+  drawGridInGizmos: 1
