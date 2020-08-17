@@ -8,7 +8,7 @@ public class LevelTwentyControllerCoop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.GetGameManager().SetEnemiesLeft(3);
+        GameManager.GetGameManager().SetEnemiesLeft(8);
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class LevelTwentyControllerCoop : MonoBehaviour
         {
             GameManager.GetGameManager().MakeSlowMoUnavailable();
             GameManager.GetGameManager().DeactivateSlowMo();
-            SceneManager.LoadScene("ClassicLevel1Coop");
+            SceneManager.LoadScene("MainMenu");
         }
 
     }

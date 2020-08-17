@@ -8,7 +8,7 @@ public class LevelTwentyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.GetGameManager().SetEnemiesLeft(3);
+        GameManager.GetGameManager().SetEnemiesLeft(8);
 
     }
 
@@ -24,7 +24,7 @@ public class LevelTwentyController : MonoBehaviour
         {
             GameManager.GetGameManager().MakeSlowMoUnavailable();
             GameManager.GetGameManager().DeactivateSlowMo();
-            SceneManager.LoadScene("ClassicLevel1");
+            SceneManager.LoadScene("MainMenu");
         }
 
     }

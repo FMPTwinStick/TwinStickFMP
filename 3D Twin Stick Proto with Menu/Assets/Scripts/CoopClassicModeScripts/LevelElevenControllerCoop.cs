@@ -8,7 +8,7 @@ public class LevelElevenControllerCoop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.GetGameManager().SetEnemiesLeft(3);
+        GameManager.GetGameManager().SetEnemiesLeft(6);
     }
 
     // Update is called once per frame

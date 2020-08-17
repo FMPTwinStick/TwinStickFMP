@@ -8,7 +8,7 @@ public class LevelNineControllerCoop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.GetGameManager().SetEnemiesLeft(3);
+        GameManager.GetGameManager().SetEnemiesLeft(4);
     }
 
     // Update is called once per frame
