@@ -9,7 +9,6 @@ public class LevelTwentyController : MonoBehaviour
     void Start()
     {
         GameManager.GetGameManager().SetEnemiesLeft(8);
-
     }
 
     // Update is called once per frame

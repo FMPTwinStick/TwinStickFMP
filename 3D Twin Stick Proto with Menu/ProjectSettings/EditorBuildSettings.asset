@@ -54,9 +54,6 @@ EditorBuildSettings:
     path: Assets/Scenes/ClassicModeMap/ClassicLevel10.unity
     guid: fd33bffb6d44014419e07512f3111873
   - enabled: 1
-    path: Assets/Scenes/ClassicModeCo-Op/ClassicLevel1Coop.unity
-    guid: f5ee1306e32f34c489d916ebb200add9
-  - enabled: 1
     path: Assets/Scenes/ClassicModeMap/ClassicLevel11.unity
     guid: 31a96db54b07be64abba86d5fbce2722
   - enabled: 1
@@ -86,6 +83,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ClassicModeMap/ClassicLevel20.unity
     guid: 49d5d144bfc1c934fbf0722d4ac0cee0
+  - enabled: 1
+    path: Assets/Scenes/ClassicModeCo-Op/ClassicLevel1Coop.unity
+    guid: f5ee1306e32f34c489d916ebb200add9
   - enabled: 1
     path: Assets/Scenes/ClassicModeCo-Op/ClassicLevel2Coop.unity
     guid: 24519bcd360b00147b94938e602b72c1

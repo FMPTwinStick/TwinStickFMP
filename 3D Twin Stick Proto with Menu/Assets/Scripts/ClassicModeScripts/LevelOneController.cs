@@ -21,7 +21,7 @@ public class LevelOneController : MonoBehaviour
             GameManager.GetGameManager().MakeSlowMoAvailable();
         }
 
-     if(GameManager.GetGameManager().EnemiesLeft <=0)
+     if(GameManager.GetGameManager().GetEnemiesLeft() <= 0)
         {
             GameManager.GetGameManager().MakeSlowMoUnavailable();
             GameManager.GetGameManager().DeactivateSlowMo();
