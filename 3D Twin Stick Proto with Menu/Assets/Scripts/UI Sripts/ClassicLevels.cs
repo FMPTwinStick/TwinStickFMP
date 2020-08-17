@@ -10,7 +10,7 @@ public class ClassicLevels : MonoBehaviour
     //This loads the Classic Level 1
     public void LoadClassicLevel1()
     {
-        SceneManager.LoadScene("ClassicLevel1");
+        SceneManager.LoadScene(1);
     }
 
     //This loads the Classic Level 2
