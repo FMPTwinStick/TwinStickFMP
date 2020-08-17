@@ -14,14 +14,12 @@ public class LevelTwentyControllerCoop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
-     if(GameManager.GetGameManager().GetEnemiesLeft() == 1)
+     if (GameManager.GetGameManager().GetEnemiesLeft() == 1)
         {
             GameManager.GetGameManager().MakeSlowMoAvailable();
         }
 
-     if(GameManager.GetGameManager().EnemiesLeft <=0)
+     if(GameManager.GetGameManager().GetEnemiesLeft() <=0)
         {
             GameManager.GetGameManager().MakeSlowMoUnavailable();
             GameManager.GetGameManager().DeactivateSlowMo();
